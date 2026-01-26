@@ -284,3 +284,9 @@ body {
   background: var(--primary-100);
   color: var(--primary-900);
 }
+
+/* Animation utilities */
+.animate-on-scroll.animate-in {
+  opacity: 1 !important;
+  transform: translateY(0) translateX(0) !important;
+}

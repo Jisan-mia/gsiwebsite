@@ -45,121 +45,110 @@ export default function Trust() {
     <section
       ref={sectionRef}
       id="why-us"
-      className="py-20 lg:py-28 bg-gray-50"
+      className="py-20 lg:py-24 bg-gray-50/50"
       aria-labelledby="trust-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
-        <div className="text-center max-w-3xl mx-auto mb-16">
-          <span
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4"
-            style={{ transitionDelay: "0.1s" }}
-          >
-            Why Choose Us
-          </span>
-          <h2
-            id="trust-heading"
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
-            style={{ transitionDelay: "0.2s" }}
-          >
-            Why Clients <span className="gradient-text">Trust GSiTech</span>
-          </h2>
-          <p
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted"
-            style={{ transitionDelay: "0.3s" }}
-          >
-            We&apos;ve built our reputation on delivering consistent quality,
-            transparent operations, and genuine partnership with every client.
-          </p>
-        </div>
-
-        {/* Metrics */}
-        <div
-          className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 grid grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8 mb-16"
-          style={{ transitionDelay: "0.3s" }}
-        >
-          {metrics.map((metric, index) => (
-            <div
-              key={metric.label}
-              className="bg-white rounded-2xl p-6 lg:p-8 text-center shadow-sm border border-gray-100"
-            >
-              <div className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary mb-2">
-                {metric.value}
-              </div>
-              <div className="text-sm sm:text-base text-muted">
-                {metric.label}
-              </div>
-            </div>
-          ))}
-        </div>
-
-        {/* Trust Signals Grid */}
-        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {trustSignals.map((signal, index) => {
-            const IconComponent = iconMap[signal.icon as keyof typeof iconMap];
-            return (
-              <article
-                key={signal.title}
-                className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 group flex gap-4"
-                style={{ transitionDelay: `${0.1 * (index + 1)}s` }}
-              >
-                {/* Icon */}
-                <div className="shrink-0 w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center group-hover:bg-primary group-hover:scale-110 transition-all duration-300">
-                  <IconComponent
-                    className="w-6 h-6 text-primary group-hover:text-white transition-colors"
-                    aria-hidden="true"
-                  />
-                </div>
-
-                {/* Content */}
-                <div>
-                  <h3 className="text-lg font-bold text-foreground mb-1">
-                    {signal.title}
-                  </h3>
-                  <p className="text-muted text-sm leading-relaxed">
-                    {signal.description}
-                  </p>
-                </div>
-              </article>
-            );
-          })}
-        </div>
-
-        {/* Regions Banner */}
-        <div
-          className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 mt-16 bg-white rounded-2xl p-8 lg:p-12 border border-gray-100 shadow-sm"
-          style={{ transitionDelay: "0.8s" }}
-        >
-          <div className="flex flex-col lg:flex-row items-center justify-between gap-6">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+          {/* Left Side: Header & Context */}
+          <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-12">
             <div>
-              <h3 className="text-xl lg:text-2xl font-bold text-foreground mb-2">
-                Proudly Serving Clients Globally
-              </h3>
-              <p className="text-muted">
-                Trusted by businesses across North America, Europe, and
-                Australia-Pacific regions.
+              <span
+                className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-accent font-medium text-sm uppercase tracking-widest mb-4"
+                style={{ transitionDelay: "0.1s" }}
+              >
+                Why Choose Us
+              </span>
+              <h2
+                id="trust-heading"
+                className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl font-bold text-primary mb-6"
+                style={{ transitionDelay: "0.2s" }}
+              >
+                Reliable partnership
+              </h2>
+              <p
+                className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted/80 leading-relaxed"
+                style={{ transitionDelay: "0.3s" }}
+              >
+                We&apos;ve built our reputation on delivering consistent
+                quality, transparent operations, and measurable results for our
+                clients.
               </p>
             </div>
-            <div className="flex flex-wrap gap-3 justify-center">
-              {["USA", "UK", "Europe", "Canada", "Australia"].map((region) => (
-                <span
-                  key={region}
-                  className="px-4 py-2 bg-primary/10 text-primary font-medium rounded-full text-sm"
+
+            {/* Compact Metrics Stack */}
+            <div className="space-y-6">
+              {metrics.map((metric, index) => (
+                <div
+                  key={metric.label}
+                  className="animate-on-scroll opacity-0 translate-x-4 transition-all duration-500 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center justify-between"
+                  style={{ transitionDelay: `${0.4 + index * 0.1}s` }}
                 >
-                  {region}
-                </span>
+                  <span className="text-sm font-medium text-muted uppercase tracking-wide">
+                    {metric.label}
+                  </span>
+                  <span className="text-3xl font-bold text-primary">
+                    {metric.value}
+                  </span>
+                </div>
               ))}
+            </div>
+          </div>
+
+          {/* Right Side: Trust Signals Grid */}
+          <div className="lg:col-span-8">
+            <div className="grid sm:grid-cols-2 gap-6">
+              {trustSignals.map((signal, index) => {
+                const IconComponent =
+                  iconMap[signal.icon as keyof typeof iconMap];
+                return (
+                  <div
+                    key={signal.title}
+                    className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 group bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-lg hover:border-transparent"
+                    style={{ transitionDelay: `${0.2 * (index + 1)}s` }}
+                  >
+                    <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                      <IconComponent className="w-6 h-6" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-lg font-bold text-foreground mb-3">
+                      {signal.title}
+                    </h3>
+                    <p className="text-muted leading-relaxed text-sm">
+                      {signal.description}
+                    </p>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* Regions integrated at bottom of grid */}
+            <div
+              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 mt-12 bg-white rounded-3xl p-8 border border-gray-100 text-center"
+              style={{ transitionDelay: "0.6s" }}
+            >
+              <h3 className="text-sm font-medium text-muted uppercase tracking-wide mb-6">
+                Serving clients across
+              </h3>
+              <div className="flex flex-wrap gap-3 justify-center">
+                {[
+                  "United States",
+                  "United Kingdom",
+                  "Europe",
+                  "Canada",
+                  "Australia",
+                ].map((region) => (
+                  <span
+                    key={region}
+                    className="px-4 py-2 bg-gray-50 text-primary/80 font-medium rounded-full text-sm hover:bg-primary/5 transition-colors"
+                  >
+                    {region}
+                  </span>
+                ))}
+              </div>
             </div>
           </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .animate-on-scroll.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   );
 }

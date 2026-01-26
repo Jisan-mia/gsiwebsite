@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
-import { Menu, X, Phone } from "lucide-react";
+import { Menu, X, Phone, ChevronRight, Mail, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigation, siteConfig } from "@/lib/constants";
 
@@ -10,61 +10,76 @@ export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
+  // Handle scroll detection
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
+      setIsScrolled(window.scrollY > 0);
     };
     window.addEventListener("scroll", handleScroll);
+    handleScroll(); // Check on mount
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    if (isMobileMenuOpen) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "unset";
+    }
+    return () => {
+      document.body.style.overflow = "unset";
+    };
+  }, [isMobileMenuOpen]);
 
   return (
     <>
       <a
         href="#main-content"
-        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:bg-primary focus:text-white focus:px-4 focus:py-2 focus:rounded-md"
+        className="sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-[100] focus:bg-primary focus:text-white focus:px-6 focus:py-3 focus:rounded-xl focus:font-bold focus:shadow-xl transition-all"
       >
         Skip to main content
       </a>
+
       <header
         className={cn(
-          "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          isScrolled
-            ? "bg-white/95 backdrop-blur-md shadow-lg"
-            : "bg-transparent",
+          "fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out",
+          isScrolled && !isMobileMenuOpen
+            ? "bg-white/80 backdrop-blur-md shadow-md py-3"
+            : "bg-transparent py-4 lg:py-6",
+          isMobileMenuOpen && "bg-transparent shadow-none",
         )}
         role="banner"
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative z-50">
           <nav
-            className="flex items-center justify-between h-16 md:h-20"
+            className="flex items-center justify-between"
             aria-label="Main navigation"
           >
             {/* Logo */}
             <Link
               href="/"
-              className="flex items-center gap-2 group"
+              className="group flex items-center gap-3 relative z-50"
               aria-label={`${siteConfig.shortName} - Home`}
+              onClick={() => setIsMobileMenuOpen(false)}
             >
-              <div className="w-10 h-10 bg-primary rounded-lg flex items-center justify-center transition-transform group-hover:scale-105">
-                <span className="text-white font-bold text-lg">G</span>
+              <div className="relative w-11 h-11 flex items-center justify-center bg-gradient-to-br from-primary to-primary-light rounded-xl shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
+                <span className="text-white font-bold text-xl tracking-tight">
+                  G
+                </span>
+                <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
               </div>
               <div className="flex flex-col">
                 <span
                   className={cn(
-                    "font-bold text-lg leading-tight transition-colors",
-                    isScrolled ? "text-primary" : "text-primary",
+                    "font-bold leading-none tracking-tight text-xl transition-colors",
+                    isMobileMenuOpen ? "text-gray-900" : "text-gray-900",
                   )}
                 >
                   GSiTech
                 </span>
-                <span
-                  className={cn(
-                    "text-xs leading-tight transition-colors hidden sm:block",
-                    isScrolled ? "text-muted" : "text-muted",
-                  )}
-                >
-                  Solutions & Consultancy
+                <span className="text-xs font-semibold text-gray-500 leading-none mt-1.5 tracking-wide">
+                  Global Solutions
                 </span>
               </div>
             </Link>
@@ -75,93 +90,152 @@ export default function Header() {
                 <li key={item.name}>
                   <Link
                     href={item.href}
-                    className={cn(
-                      "text-sm font-medium transition-colors hover:text-primary relative group",
-                      isScrolled ? "text-foreground" : "text-foreground",
-                    )}
+                    className="text-sm font-medium text-gray-600 hover:text-primary transition-colors"
                   >
                     {item.name}
-                    <span
-                      className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"
-                      aria-hidden="true"
-                    />
                   </Link>
                 </li>
               ))}
             </ul>
 
-            {/* CTA Buttons */}
-            <div className="hidden lg:flex items-center gap-4">
+            {/* Desktop Actions */}
+            <div className="hidden lg:flex items-center gap-6">
               <a
                 href={`tel:${siteConfig.phone}`}
-                className={cn(
-                  "flex items-center gap-2 text-sm font-medium transition-colors hover:text-primary",
-                  isScrolled ? "text-foreground" : "text-foreground",
-                )}
-                aria-label="Call us"
+                className="group flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-primary transition-colors"
+                aria-label="Call support"
               >
-                <Phone className="w-4 h-4" aria-hidden="true" />
+                <div className="w-9 h-9 rounded-full bg-gray-50 group-hover:bg-primary/5 flex items-center justify-center transition-all border border-transparent group-hover:border-primary/10">
+                  <Phone className="w-4 h-4" />
+                </div>
                 <span className="hidden xl:inline">{siteConfig.phone}</span>
               </a>
+
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center px-5 py-2.5 bg-primary text-white font-semibold rounded-full text-sm transition-all hover:bg-primary-light hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-primary focus:ring-offset-2"
+                className="group relative inline-flex items-center gap-2 px-6 py-2.5 bg-primary text-white font-semibold rounded-full text-sm transition-all hover:bg-primary-light hover:shadow-lg hover:shadow-primary/25 hover:-translate-y-0.5 active:translate-y-0"
               >
-                Get Free Consultation
+                <span>Get Started</span>
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
+            {/* Mobile Menu Toggle */}
             <button
               type="button"
-              className="lg:hidden p-2 rounded-md hover:bg-gray-100 transition-colors"
+              className="lg:hidden relative z-50 p-2.5 rounded-xl text-gray-700 hover:bg-gray-100/50 active:bg-gray-200/50 transition-all"
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-menu"
-              aria-label={isMobileMenuOpen ? "Close menu" : "Open menu"}
+              aria-label="Toggle menu"
             >
-              {isMobileMenuOpen ? (
-                <X className="w-6 h-6 text-foreground" aria-hidden="true" />
-              ) : (
-                <Menu className="w-6 h-6 text-foreground" aria-hidden="true" />
-              )}
+              <div className="w-6 h-6 flex items-center justify-center relative">
+                <span
+                  className={cn(
+                    "absolute h-0.5 w-6 bg-current transform transition-all duration-300",
+                    isMobileMenuOpen ? "rotate-45" : "-translate-y-1.5",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute h-0.5 w-6 bg-current transform transition-all duration-300",
+                    isMobileMenuOpen ? "opacity-0" : "opacity-100",
+                  )}
+                />
+                <span
+                  className={cn(
+                    "absolute h-0.5 w-6 bg-current transform transition-all duration-300",
+                    isMobileMenuOpen ? "-rotate-45" : "translate-y-1.5",
+                  )}
+                />
+              </div>
             </button>
           </nav>
         </div>
 
-        {/* Mobile Menu */}
+        {/* Mobile Menu Overlay */}
         <div
           id="mobile-menu"
           className={cn(
-            "lg:hidden absolute top-full left-0 right-0 bg-white shadow-lg transition-all duration-300 overflow-hidden",
-            isMobileMenuOpen ? "max-h-100 opacity-100" : "max-h-0 opacity-0",
+            "lg:hidden fixed inset-0 bg-white z-40 transition-all duration-300 ease-in-out",
+            isMobileMenuOpen
+              ? "opacity-100 translate-x-0"
+              : "opacity-0 translate-x-full pointer-events-none",
           )}
-          aria-hidden={!isMobileMenuOpen}
         >
-          <nav className="px-4 py-6" aria-label="Mobile navigation">
-            <ul className="space-y-4" role="list">
-              {navigation.map((item) => (
-                <li key={item.name}>
+          {/* Background decorator */}
+          <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
+          <div className="absolute bottom-0 left-0 w-64 h-64 bg-secondary/5 rounded-full blur-3xl translate-y-1/2 -translate-x-1/2" />
+
+          <div className="h-full flex flex-col pt-28 pb-8 px-6 overflow-y-auto relative">
+            <nav className="flex-1 space-y-2" aria-label="Mobile navigation">
+              {navigation.map((item, index) => (
+                <div
+                  key={item.name}
+                  className={cn(
+                    "transform transition-all duration-500",
+                    isMobileMenuOpen
+                      ? "translate-x-0 opacity-100"
+                      : "translate-x-8 opacity-0",
+                  )}
+                  style={{ transitionDelay: `${index * 50}ms` }}
+                >
                   <Link
                     href={item.href}
-                    className="block py-2 text-foreground font-medium hover:text-primary transition-colors"
+                    className="flex items-center justify-between p-4 rounded-2xl text-xl font-medium text-gray-900 hover:bg-gray-50 active:bg-gray-100 transition-colors border border-transparent hover:border-gray-100 group"
                     onClick={() => setIsMobileMenuOpen(false)}
                   >
                     {item.name}
+                    <ChevronRight className="w-5 h-5 text-gray-300 group-hover:text-primary transition-colors" />
                   </Link>
-                </li>
+                </div>
               ))}
-              <li className="pt-4 border-t border-border">
-                <Link
-                  href="#contact"
-                  className="block w-full text-center px-5 py-3 bg-primary text-white font-semibold rounded-full transition-all hover:bg-primary-light"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                >
-                  Get Free Consultation
-                </Link>
-              </li>
-            </ul>
-          </nav>
+            </nav>
+
+            <div
+              className={cn(
+                "mt-8 space-y-4 transform transition-all duration-500 delay-300",
+                isMobileMenuOpen
+                  ? "translate-y-0 opacity-100"
+                  : "translate-y-8 opacity-0",
+              )}
+            >
+              <div className="p-6 bg-gray-50 rounded-3xl border border-gray-100">
+                <p className="text-sm font-semibold text-gray-500 mb-4 uppercase tracking-wider">
+                  Contact Support
+                </p>
+                <div className="grid gap-3">
+                  <a
+                    href={`tel:${siteConfig.phone}`}
+                    className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-gray-900 font-medium active:scale-[0.98] transition-transform"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                      <Phone className="w-4 h-4" />
+                    </div>
+                    {siteConfig.phone}
+                  </a>
+                  <a
+                    href={`mailto:${siteConfig.email}`}
+                    className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-gray-900 font-medium active:scale-[0.98] transition-transform"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
+                      <Mail className="w-4 h-4" />
+                    </div>
+                    {siteConfig.email}
+                  </a>
+                </div>
+              </div>
+
+              <Link
+                href="#contact"
+                className="flex items-center justify-center gap-2 w-full py-4 bg-primary text-white rounded-2xl font-bold text-lg shadow-xl shadow-primary/20 hover:bg-primary-light active:scale-[0.95] transition-all"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                Get Started Now
+                <ArrowRight className="w-5 h-5" />
+              </Link>
+            </div>
+          </div>
         </div>
       </header>
     </>

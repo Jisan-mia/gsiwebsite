@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { ChevronDown } from "lucide-react";
+import { Plus, Minus, MessageCircle } from "lucide-react";
 import { faqs } from "@/lib/constants";
 
 export default function FAQ() {
@@ -34,106 +34,132 @@ export default function FAQ() {
     <section
       ref={sectionRef}
       id="faq"
-      className="py-20 lg:py-28 bg-white"
+      className="py-20 lg:py-32 bg-linear-to-b from-white via-gray-50/30 to-white"
       aria-labelledby="faq-heading"
     >
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <span
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4"
+        <div className="text-center mb-20">
+          <div
+            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-flex items-center gap-2 px-4 py-2 bg-primary/5 rounded-full text-primary text-sm font-medium mb-6"
             style={{ transitionDelay: "0.1s" }}
           >
-            FAQ
-          </span>
+            <MessageCircle className="w-4 h-4" aria-hidden="true" />
+            <span>Common Questions</span>
+          </div>
           <h2
             id="faq-heading"
             className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
             style={{ transitionDelay: "0.2s" }}
           >
-            Frequently Asked <span className="gradient-text">Questions</span>
+            Questions? <span className="gradient-text">We've Got Answers</span>
           </h2>
           <p
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted"
+            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted max-w-2xl mx-auto"
             style={{ transitionDelay: "0.3s" }}
           >
-            Everything you need to know about our BPO services. Can&apos;t find
-            the answer? Reach out to us.
+            Find quick answers to the most common questions about our BPO
+            services
           </p>
         </div>
 
-        {/* FAQ Accordion */}
-        <div
-          className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 space-y-4"
-          style={{ transitionDelay: "0.4s" }}
-        >
+        {/* FAQ Grid - Two Column Layout on Desktop */}
+        <div className="grid lg:grid-cols-2 gap-6 lg:gap-8">
           {faqs.map((faq, index) => (
             <div
               key={index}
-              className="bg-gray-50 rounded-xl overflow-hidden border border-gray-100"
+              className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500"
+              style={{ transitionDelay: `${0.1 * (index % 4)}s` }}
             >
-              <button
-                type="button"
-                onClick={() => toggleQuestion(index)}
-                className="w-full flex items-center justify-between p-6 text-left hover:bg-gray-100 transition-colors focus:outline-none focus:ring-2 focus:ring-inset focus:ring-primary"
-                aria-expanded={openIndex === index}
-                aria-controls={`faq-answer-${index}`}
-              >
-                <span className="text-lg font-semibold text-foreground pr-4">
-                  {faq.question}
-                </span>
-                <ChevronDown
-                  className={`w-5 h-5 text-primary shrink-0 transition-transform duration-300 ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
-                  aria-hidden="true"
-                />
-              </button>
-
               <div
-                id={`faq-answer-${index}`}
-                className={`overflow-hidden transition-all duration-300 ${
+                className={`group h-full bg-white border transition-all duration-300 ${
                   openIndex === index
-                    ? "max-h-96 opacity-100"
-                    : "max-h-0 opacity-0"
+                    ? "border-primary shadow-lg shadow-primary/10"
+                    : "border-gray-200 hover:border-gray-300 hover:shadow-md"
                 }`}
-                aria-hidden={openIndex !== index}
               >
-                <div className="px-6 pb-6 text-muted leading-relaxed">
-                  {faq.answer}
+                <button
+                  type="button"
+                  onClick={() => toggleQuestion(index)}
+                  className="w-full flex items-start justify-between gap-4 p-6 text-left focus:outline-none"
+                  aria-expanded={openIndex === index}
+                  aria-controls={`faq-answer-${index}`}
+                >
+                  <span
+                    className={`text-base font-semibold transition-colors ${
+                      openIndex === index ? "text-primary" : "text-foreground"
+                    }`}
+                  >
+                    {faq.question}
+                  </span>
+                  <div
+                    className={`shrink-0 w-6 h-6 flex items-center justify-center transition-all duration-300 ${
+                      openIndex === index
+                        ? "text-primary rotate-180"
+                        : "text-gray-400 group-hover:text-primary"
+                    }`}
+                  >
+                    {openIndex === index ? (
+                      <Minus className="w-5 h-5" aria-hidden="true" />
+                    ) : (
+                      <Plus className="w-5 h-5" aria-hidden="true" />
+                    )}
+                  </div>
+                </button>
+
+                <div
+                  id={`faq-answer-${index}`}
+                  className={`overflow-hidden transition-all duration-300 ${
+                    openIndex === index
+                      ? "max-h-96 opacity-100"
+                      : "max-h-0 opacity-0"
+                  }`}
+                  aria-hidden={openIndex !== index}
+                >
+                  <div className="px-6 pb-6 text-muted leading-relaxed">
+                    {faq.answer}
+                  </div>
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* Additional help */}
+        {/* CTA Card */}
         <div
-          className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 mt-12 text-center"
+          className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 mt-16"
           style={{ transitionDelay: "0.6s" }}
         >
-          <p className="text-muted mb-4">
-            Still have questions? We&apos;re here to help.
-          </p>
-          <a
-            href="#contact"
-            className="inline-flex items-center text-primary font-semibold hover:text-primary-light transition-colors"
-          >
-            Contact our team
-            <ChevronDown
-              className="w-4 h-4 ml-1 -rotate-90"
+          <div className="relative overflow-hidden bg-linear-to-br from-primary to-primary-dark rounded-2xl p-8 lg:p-10">
+            {/* Background decoration */}
+            <div
+              className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2"
               aria-hidden="true"
             />
-          </a>
+            <div
+              className="absolute bottom-0 left-0 w-48 h-48 bg-white/5 rounded-full translate-y-1/2 -translate-x-1/2"
+              aria-hidden="true"
+            />
+
+            <div className="relative text-center">
+              <h3 className="text-2xl lg:text-3xl font-bold text-white mb-4">
+                Still have questions?
+              </h3>
+              <p className="text-white/80 mb-6 max-w-xl mx-auto">
+                Our team is ready to provide personalized answers and help you
+                find the perfect BPO solution for your business.
+              </p>
+              <a
+                href="#contact"
+                className="inline-flex items-center gap-2 px-6 py-3 bg-white text-primary font-semibold rounded-lg transition-all hover:bg-gray-50 hover:shadow-lg hover:scale-105 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+              >
+                <MessageCircle className="w-5 h-5" aria-hidden="true" />
+                Get in Touch
+              </a>
+            </div>
+          </div>
         </div>
       </div>
-
-      <style jsx>{`
-        .animate-on-scroll.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   );
 }

@@ -7,6 +7,7 @@ import {
   Shuffle,
   Settings,
   GraduationCap,
+  ShieldCheck,
   ChevronRight,
 } from "lucide-react";
 import { services } from "@/lib/constants";
@@ -17,6 +18,7 @@ const iconMap = {
   Shuffle,
   Settings,
   GraduationCap,
+  ShieldCheck,
 };
 
 export default function Services() {
@@ -52,7 +54,7 @@ export default function Services() {
       className="py-20 lg:py-28 bg-white"
       aria-labelledby="services-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span
@@ -79,7 +81,7 @@ export default function Services() {
         </div>
 
         {/* Services Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
             const isExpanded = expandedCard === service.id;
@@ -149,13 +151,6 @@ export default function Services() {
           })}
         </div>
       </div>
-
-      <style jsx>{`
-        .animate-on-scroll.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   );
 }

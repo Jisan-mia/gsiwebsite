@@ -55,7 +55,7 @@ export default function Solutions() {
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span
@@ -125,13 +125,6 @@ export default function Solutions() {
           </Link>
         </div>
       </div>
-
-      <style jsx>{`
-        .animate-on-scroll.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   );
 }

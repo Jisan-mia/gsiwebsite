@@ -52,7 +52,7 @@ export default function Testimonials() {
       className="py-20 lg:py-28 bg-white"
       aria-labelledby="testimonials-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span
@@ -115,6 +115,7 @@ export default function Testimonials() {
                         src={testimonial.image}
                         alt={`${testimonial.author}`}
                         fill
+                        sizes="56px"
                         className="object-cover"
                       />
                     </div>
@@ -192,6 +193,7 @@ export default function Testimonials() {
                     src={testimonial.image}
                     alt=""
                     fill
+                    sizes="40px"
                     className="object-cover"
                   />
                 </div>
@@ -212,13 +214,6 @@ export default function Testimonials() {
           ))}
         </div>
       </div>
-
-      <style jsx>{`
-        .animate-on-scroll.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   );
 }

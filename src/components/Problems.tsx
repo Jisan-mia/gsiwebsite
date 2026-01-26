@@ -47,28 +47,28 @@ export default function Problems() {
       className="py-20 lg:py-28 bg-linear-to-b from-white to-gray-50"
       aria-labelledby="problems-heading"
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <span
             className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4"
             style={{ transitionDelay: "0.1s" }}
           >
-            The Challenges You Face
+            Challenges
           </span>
           <h2
             id="problems-heading"
             className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
             style={{ transitionDelay: "0.2s" }}
           >
-            Sound <span className="gradient-text">Familiar?</span>
+            Common operational hurdles
           </h2>
           <p
             className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted"
             style={{ transitionDelay: "0.3s" }}
           >
-            These common pain points are exactly why businesses like yours turn
-            to GSiTech for reliable outsourcing solutions.
+            We solve the complexity of scaling support teams so you don't have
+            to.
           </p>
         </div>
 
@@ -123,13 +123,6 @@ export default function Problems() {
           </p>
         </div>
       </div>
-
-      <style jsx>{`
-        .animate-on-scroll.animate-in {
-          opacity: 1 !important;
-          transform: translateY(0) !important;
-        }
-      `}</style>
     </section>
   );
 }

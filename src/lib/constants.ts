@@ -6,8 +6,8 @@ export const siteConfig = {
   url: "https://gsitech.com",
   ogImage: "/images/og-image.jpg",
   email: "info@gsitech.com",
-  phone: "+1 (555) 123-4567",
-  address: "123 Business Avenue, Suite 100, New York, NY 10001",
+  phone: "+880 1700-000000",
+  address: "House 25, Road 11, Sector 4, Uttara, Dhaka 1230, Bangladesh",
   regions: ["USA", "UK", "Europe", "Canada", "Australia"],
   socials: {
     linkedin: "https://linkedin.com/company/gsitech",
@@ -79,15 +79,28 @@ export const services = [
   },
   {
     id: "training",
-    title: "Training & Development",
+    title: "Call Center Training",
     description:
-      "Comprehensive training programs to build high-performing call center teams.",
+      "Comprehensive training programs covering communication, systems, and soft skills.",
     icon: "GraduationCap",
     features: [
-      "Call Center Training",
-      "Phishing Awareness Training",
-      "Soft Skills Development",
-      "Compliance Training",
+      "Onboarding",
+      "Ongoing Coaching",
+      "Product Training",
+      "Skill Development",
+    ],
+  },
+  {
+    id: "security",
+    title: "Security Training",
+    description:
+      "Phishing awareness and security training to protect your organization.",
+    icon: "ShieldCheck",
+    features: [
+      "Phishing Awareness",
+      "Threat Recognition",
+      "Simulations",
+      "Compliance",
     ],
   },
 ];
