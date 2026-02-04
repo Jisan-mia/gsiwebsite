@@ -85,10 +85,10 @@ export default function Testimonials() {
           aria-label="Testimonials carousel"
         >
           {/* Main testimonial */}
-          <div className="bg-gray-50 rounded-3xl p-8 lg:p-12 relative overflow-hidden">
+          <div className="bg-primary rounded-3xl p-8 lg:p-12 relative overflow-hidden">
             {/* Quote icon */}
             <div
-              className="absolute top-6 right-6 lg:top-8 lg:right-8 text-primary/10"
+              className="absolute top-6 right-6 lg:top-8 lg:right-8 text-white/15"
               aria-hidden="true"
             >
               <Quote className="w-20 h-20 lg:w-32 lg:h-32" />
@@ -105,7 +105,7 @@ export default function Testimonials() {
                   }`}
                   aria-hidden={index !== activeIndex}
                 >
-                  <blockquote className="text-lg lg:text-xl text-foreground leading-relaxed mb-8">
+                  <blockquote className="text-lg lg:text-xl text-white leading-relaxed mb-8">
                     &ldquo;{testimonial.quote}&rdquo;
                   </blockquote>
 
@@ -120,10 +120,10 @@ export default function Testimonials() {
                       />
                     </div>
                     <div>
-                      <cite className="not-italic font-bold text-foreground block">
+                      <cite className="not-italic font-bold text-white block">
                         {testimonial.author}
                       </cite>
-                      <span className="text-sm text-muted">
+                      <span className="text-sm text-white/80">
                         {testimonial.role}, {testimonial.company}
                       </span>
                     </div>

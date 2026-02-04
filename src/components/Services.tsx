@@ -7,10 +7,10 @@ import {
   Shuffle,
   Settings,
   GraduationCap,
-  ShieldCheck,
+  Globe,
   ChevronRight,
 } from "lucide-react";
-import { services } from "@/lib/constants";
+import { services, siteConfig } from "@/lib/constants";
 
 const iconMap = {
   PhoneIncoming,
@@ -18,7 +18,7 @@ const iconMap = {
   Shuffle,
   Settings,
   GraduationCap,
-  ShieldCheck,
+  Globe,
 };
 
 export default function Services() {
@@ -75,9 +75,22 @@ export default function Services() {
             style={{ transitionDelay: "0.3s" }}
           >
             Comprehensive BPO and call center solutions tailored to your
-            business needs. From inbound support to specialized training
-            programs.
+            business needs. From inbound support to training, security, and
+            digital growth services.
           </p>
+          <div
+            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 mt-6 flex flex-wrap items-center justify-center gap-2"
+            style={{ transitionDelay: "0.4s" }}
+          >
+            {siteConfig.industries.map((industry) => (
+              <span
+                key={industry}
+                className="px-3 py-1.5 rounded-full bg-primary/5 text-primary text-xs font-semibold tracking-wide"
+              >
+                {industry}
+              </span>
+            ))}
+          </div>
         </div>
 
         {/* Services Grid */}

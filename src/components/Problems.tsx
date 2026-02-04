@@ -61,7 +61,7 @@ export default function Problems() {
             className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
             style={{ transitionDelay: "0.2s" }}
           >
-            Common operational hurdles
+            Are you facing these challenges?
           </h2>
           <p
             className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted"

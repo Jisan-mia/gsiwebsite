@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { Menu, X, Phone, ChevronRight, Mail, ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { navigation, siteConfig } from "@/lib/constants";
@@ -63,11 +64,15 @@ export default function Header() {
               aria-label={`${siteConfig.shortName} - Home`}
               onClick={() => setIsMobileMenuOpen(false)}
             >
-              <div className="relative w-11 h-11 flex items-center justify-center bg-gradient-to-br from-primary to-primary-light rounded-xl shadow-lg shadow-primary/20 group-hover:scale-105 transition-transform duration-300">
-                <span className="text-white font-bold text-xl tracking-tight">
-                  G
-                </span>
-                <div className="absolute inset-0 rounded-xl bg-white/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="relative w-11 h-11 flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
+                <Image
+                  src="/logo.webp"
+                  alt="GSiTech logo"
+                  width={36}
+                  height={36}
+                  className="object-contain"
+                  priority
+                />
               </div>
               <div className="flex flex-col">
                 <span
@@ -79,7 +84,7 @@ export default function Header() {
                   GSiTech
                 </span>
                 <span className="text-xs font-semibold text-gray-500 leading-none mt-1.5 tracking-wide">
-                  Global Solutions
+                  Solutions & Consultancy
                 </span>
               </div>
             </Link>
@@ -101,14 +106,19 @@ export default function Header() {
             {/* Desktop Actions */}
             <div className="hidden lg:flex items-center gap-6">
               <a
-                href={`tel:${siteConfig.phone}`}
-                className="group flex items-center gap-2 text-sm font-semibold text-gray-600 hover:text-primary transition-colors"
-                aria-label="Call support"
+                href={siteConfig.whatsappLink}
+                className="group flex items-center gap-3 text-sm font-semibold text-gray-600 hover:text-primary transition-colors"
+                aria-label="WhatsApp"
               >
                 <div className="w-9 h-9 rounded-full bg-gray-50 group-hover:bg-primary/5 flex items-center justify-center transition-all border border-transparent group-hover:border-primary/10">
                   <Phone className="w-4 h-4" />
                 </div>
-                <span className="hidden xl:inline">{siteConfig.phone}</span>
+                <div className="hidden xl:flex flex-col leading-tight">
+                  <span className="text-[11px] uppercase tracking-wider text-gray-400">
+                    WhatsApp
+                  </span>
+                  <span>{siteConfig.phone}</span>
+                </div>
               </a>
 
               <Link
@@ -206,13 +216,13 @@ export default function Header() {
                 </p>
                 <div className="grid gap-3">
                   <a
-                    href={`tel:${siteConfig.phone}`}
+                    href={siteConfig.whatsappLink}
                     className="flex items-center gap-3 p-3 bg-white rounded-xl shadow-sm border border-gray-100 text-gray-900 font-medium active:scale-[0.98] transition-transform"
                   >
                     <div className="w-8 h-8 rounded-full bg-primary/10 flex items-center justify-center text-primary">
                       <Phone className="w-4 h-4" />
                     </div>
-                    {siteConfig.phone}
+                    WhatsApp: {siteConfig.phone}
                   </a>
                   <a
                     href={`mailto:${siteConfig.email}`}

@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { services, siteConfig } from "@/lib/constants";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -28,13 +29,14 @@ export const metadata: Metadata = {
     template: "%s | GSiTech Solutions & Consultancy",
   },
   description:
-    "Scalable, secure, and cost-effective BPO & call center outsourcing services. Save 40-60% on operational costs with our skilled offshore teams. Serving USA, UK, Europe, Canada, and Australia.",
+    "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
   keywords: [
     "BPO services",
     "call center outsourcing",
     "customer support outsourcing",
     "inbound call center",
     "outbound call center",
+    "telesales services",
     "offshore BPO",
     "business process outsourcing",
     "customer service outsourcing",
@@ -42,6 +44,14 @@ export const metadata: Metadata = {
     "call center training",
     "telemarketing services",
     "lead generation services",
+    "e-commerce customer support",
+    "healthcare BPO",
+    "fintech customer support",
+    "SaaS customer support",
+    "travel call center",
+    "telecom support",
+    "web development services",
+    "social media marketing",
     "customer experience outsourcing",
   ],
   authors: [{ name: "GSiTech Solutions & Consultancy" }],
@@ -59,10 +69,10 @@ export const metadata: Metadata = {
     siteName: "GSiTech Solutions & Consultancy",
     title: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
     description:
-      "Scalable, secure, and cost-effective BPO & call center outsourcing services. Save 40-60% on operational costs with our skilled offshore teams.",
+      "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
     images: [
       {
-        url: "/images/og-image.jpg",
+        url: "/og-image.svg",
         width: 1200,
         height: 630,
         alt: "GSiTech Solutions & Consultancy - BPO Services",
@@ -73,8 +83,8 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
     description:
-      "Scalable, secure, and cost-effective BPO & call center outsourcing services. Save 40-60% on operational costs.",
-    images: ["/images/og-image.jpg"],
+      "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
+    images: ["/og-image.svg"],
     creator: "@gsitech",
   },
   robots: {
@@ -92,86 +102,100 @@ export const metadata: Metadata = {
     canonical: "https://gsitech.com",
   },
   category: "Business Services",
+  icons: {
+    icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
+    apple: [{ url: "/logo.webp", type: "image/webp" }],
+  },
 };
 
 // JSON-LD Structured Data
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "Organization",
-  name: "GSiTech Solutions & Consultancy",
-  description:
-    "Scalable, secure, and cost-effective BPO & call center outsourcing services for global businesses.",
-  url: "https://gsitech.com",
-  logo: "https://gsitech.com/images/logo.png",
-  sameAs: [
-    "https://linkedin.com/company/gsitech",
-    "https://twitter.com/gsitech",
-    "https://facebook.com/gsitech",
-  ],
-  contactPoint: [
+  "@graph": [
     {
-      "@type": "ContactPoint",
-      telephone: "+1-555-123-4567",
-      contactType: "sales",
-      areaServed: ["US", "GB", "CA", "AU", "EU"],
-      availableLanguage: ["English"],
+      "@type": "Organization",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      logo: `${siteConfig.url}/logo.webp`,
+      description: siteConfig.description,
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      sameAs: Object.values(siteConfig.socials).filter(Boolean),
+      contactPoint: [
+        {
+          "@type": "ContactPoint",
+          telephone: siteConfig.phone,
+          contactType: "sales",
+          areaServed: ["US", "GB", "CA", "AU", "EU"],
+          availableLanguage: ["English"],
+        },
+        {
+          "@type": "ContactPoint",
+          telephone: siteConfig.phone,
+          contactType: "customer support",
+          areaServed: ["US", "GB", "CA", "AU", "EU"],
+          availableLanguage: ["English"],
+        },
+      ],
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Plot no-7, Road Number 1",
+        addressLocality: "Dhaka",
+        addressRegion: "Dhaka",
+        postalCode: "1207",
+        addressCountry: "BD",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "BPO Services",
+        itemListElement: services.map((service) => ({
+          "@type": "Offer",
+          itemOffered: {
+            "@type": "Service",
+            name: service.title,
+            description: service.description,
+          },
+        })),
+      },
     },
     {
-      "@type": "ContactPoint",
-      telephone: "+1-555-123-4567",
-      contactType: "customer support",
+      "@type": "WebSite",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      inLanguage: "en",
+      publisher: {
+        "@type": "Organization",
+        name: siteConfig.name,
+      },
+    },
+    {
+      "@type": "ProfessionalService",
+      name: siteConfig.name,
+      url: siteConfig.url,
+      description: siteConfig.description,
+      serviceType: [
+        "BPO Services",
+        "Call Center Outsourcing",
+        "Inbound Support",
+        "Outbound / Telesales",
+        "Managed Operations",
+        "Training & Security Programs",
+        "Web Development",
+        "Social Media Marketing",
+      ],
       areaServed: ["US", "GB", "CA", "AU", "EU"],
-      availableLanguage: ["English"],
+      email: siteConfig.email,
+      telephone: siteConfig.phone,
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "Plot no-7, Road Number 1",
+        addressLocality: "Dhaka",
+        addressRegion: "Dhaka",
+        postalCode: "1207",
+        addressCountry: "BD",
+      },
     },
   ],
-  address: {
-    "@type": "PostalAddress",
-    streetAddress: "123 Business Avenue, Suite 100",
-    addressLocality: "New York",
-    addressRegion: "NY",
-    postalCode: "10001",
-    addressCountry: "US",
-  },
-  aggregateRating: {
-    "@type": "AggregateRating",
-    ratingValue: "4.9",
-    reviewCount: "127",
-    bestRating: "5",
-    worstRating: "1",
-  },
-  hasOfferCatalog: {
-    "@type": "OfferCatalog",
-    name: "BPO Services",
-    itemListElement: [
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Inbound Call Center Services",
-          description:
-            "Professional customer support, help desk, and inquiry handling 24/7.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Outbound Call Center Services",
-          description:
-            "Telemarketing, lead generation, and customer outreach campaigns.",
-        },
-      },
-      {
-        "@type": "Offer",
-        itemOffered: {
-          "@type": "Service",
-          name: "Managed BPO Services",
-          description:
-            "End-to-end managed operations including training, QA, and optimization.",
-        },
-      },
-    ],
-  },
 };
 
 export default function RootLayout({
@@ -182,8 +206,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        <link rel="icon" href="/favicon.ico" sizes="any" />
-        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="/logo.webp" />
         <link rel="manifest" href="/manifest.json" />
         <script
           type="application/ld+json"

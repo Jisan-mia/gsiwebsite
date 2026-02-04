@@ -55,7 +55,7 @@ export default function Hero() {
               style={{ transitionDelay: "0.1s" }}
             >
               <Globe className="w-4 h-4" aria-hidden="true" />
-              <span>Global BPO & Outsourcing Solutions</span>
+              <span>One-Stop Global BPO & Outsourcing Solutions</span>
             </div>
 
             <h1
@@ -63,10 +63,11 @@ export default function Hero() {
               className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 text-4xl sm:text-5xl lg:text-5xl/tight font-bold text-gray-900 tracking-tight"
               style={{ transitionDelay: "0.2s" }}
             >
-              Elevate Your Customer <br className="hidden lg:block" />
-              Experience with{" "}
+              BPO & Call Center Outsourcing
+              <br className="hidden lg:block" />
+              that elevates{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-light">
-                GSiTech
+                customer experience
               </span>
             </h1>
 
@@ -74,9 +75,9 @@ export default function Hero() {
               className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
               style={{ transitionDelay: "0.3s" }}
             >
-              Scalable, professional teams that integrate seamlessly with your
-              business culture. We handle the operations so you can focus on
-              growth
+              Specialized teams for e-commerce, healthcare, fintech, SaaS,
+              travel, and telecom. We handle inbound support, outbound
+              telesales, and managed operations so you can focus on growth.
             </p>
 
             <div
@@ -118,7 +119,7 @@ export default function Hero() {
               </div>
               <div className="w-px h-12 bg-gray-200" />
               <div className="flex flex-col gap-1">
-                <span className="text-3xl font-bold text-gray-900">500+</span>
+                <span className="text-3xl font-bold text-gray-900">10+</span>
                 <span className="text-sm text-gray-500 font-medium">
                   Expert Agents
                 </span>
@@ -178,7 +179,9 @@ export default function Hero() {
                     <div className="text-sm font-semibold text-gray-900">
                       Dedicated Teams
                     </div>
-                    <div className="text-xs text-gray-500">Tailored to You</div>
+                    <div className="text-xs text-gray-500">
+                      Tailored to your needs
+                    </div>
                   </div>
                 </div>
               </div>

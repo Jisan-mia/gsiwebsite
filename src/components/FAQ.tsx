@@ -8,6 +8,19 @@ export default function FAQ() {
   const sectionRef = useRef<HTMLElement>(null);
   const [openIndex, setOpenIndex] = useState<number | null>(0);
 
+  const faqJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((faq) => ({
+      "@type": "Question",
+      name: faq.question,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: faq.answer,
+      },
+    })),
+  };
+
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -37,6 +50,10 @@ export default function FAQ() {
       className="py-20 lg:py-32 bg-linear-to-b from-white via-gray-50/30 to-white"
       aria-labelledby="faq-heading"
     >
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center mb-20">
@@ -72,10 +89,10 @@ export default function FAQ() {
               style={{ transitionDelay: `${0.1 * (index % 4)}s` }}
             >
               <div
-                className={`group h-full bg-white border transition-all duration-300 ${
+                className={`group h-full border transition-all duration-300 rounded-2xl ${
                   openIndex === index
-                    ? "border-primary shadow-lg shadow-primary/10"
-                    : "border-gray-200 hover:border-gray-300 hover:shadow-md"
+                    ? "bg-primary border-primary shadow-lg shadow-primary/20"
+                    : "bg-white border-gray-200 hover:border-gray-300 hover:shadow-md"
                 }`}
               >
                 <button
@@ -87,7 +104,7 @@ export default function FAQ() {
                 >
                   <span
                     className={`text-base font-semibold transition-colors ${
-                      openIndex === index ? "text-primary" : "text-foreground"
+                      openIndex === index ? "text-white" : "text-foreground"
                     }`}
                   >
                     {faq.question}
@@ -95,7 +112,7 @@ export default function FAQ() {
                   <div
                     className={`shrink-0 w-6 h-6 flex items-center justify-center transition-all duration-300 ${
                       openIndex === index
-                        ? "text-primary rotate-180"
+                        ? "text-white rotate-180"
                         : "text-gray-400 group-hover:text-primary"
                     }`}
                   >
@@ -116,7 +133,11 @@ export default function FAQ() {
                   }`}
                   aria-hidden={openIndex !== index}
                 >
-                  <div className="px-6 pb-6 text-muted leading-relaxed">
+                  <div
+                    className={`px-6 pb-6 leading-relaxed ${
+                      openIndex === index ? "text-white/80" : "text-muted"
+                    }`}
+                  >
                     {faq.answer}
                   </div>
                 </div>

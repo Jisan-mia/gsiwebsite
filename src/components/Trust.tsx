@@ -51,7 +51,7 @@ export default function Trust() {
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
           {/* Left Side: Header & Context */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-12">
+          <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-12 text-center lg:text-left">
             <div>
               <span
                 className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-accent font-medium text-sm uppercase tracking-widest mb-4"
@@ -76,18 +76,47 @@ export default function Trust() {
               </p>
             </div>
 
+            {/* Regions */}
+            <div
+              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 bg-white rounded-3xl p-6 border border-gray-100"
+              style={{ transitionDelay: "0.35s" }}
+            >
+              <h3 className="text-sm font-medium text-muted uppercase tracking-wide mb-4">
+                Serving clients across
+              </h3>
+              <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
+                {[
+                  { name: "United States", flag: "🇺🇸" },
+                  { name: "United Kingdom", flag: "🇬🇧" },
+                  { name: "Europe", flag: "🇪🇺" },
+                  { name: "Canada", flag: "🇨🇦" },
+                  { name: "Australia", flag: "🇦🇺" },
+                ].map((region) => (
+                  <span
+                    key={region.name}
+                    className="px-4 py-2 bg-gray-50 text-primary/80 font-medium rounded-full text-sm hover:bg-primary/5 transition-colors"
+                  >
+                    <span className="mr-2" aria-hidden="true">
+                      {region.flag}
+                    </span>
+                    {region.name}
+                  </span>
+                ))}
+              </div>
+            </div>
+
             {/* Compact Metrics Stack */}
             <div className="space-y-6">
               {metrics.map((metric, index) => (
                 <div
                   key={metric.label}
-                  className="animate-on-scroll opacity-0 translate-x-4 transition-all duration-500 bg-white rounded-2xl p-6 border border-gray-100 shadow-sm flex items-center justify-between"
+                  className="animate-on-scroll opacity-0 translate-x-4 transition-all duration-500 bg-primary rounded-2xl p-6 border border-primary/10 shadow-sm flex items-center justify-between"
                   style={{ transitionDelay: `${0.4 + index * 0.1}s` }}
                 >
-                  <span className="text-sm font-medium text-muted uppercase tracking-wide">
+                  <span className="text-sm font-medium text-white/80 uppercase tracking-wide">
                     {metric.label}
                   </span>
-                  <span className="text-3xl font-bold text-primary">
+                  <span className="text-3xl font-bold text-white">
                     {metric.value}
                   </span>
                 </div>
@@ -104,48 +133,22 @@ export default function Trust() {
                 return (
                   <div
                     key={signal.title}
-                    className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 group bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-lg hover:border-transparent"
-                    style={{ transitionDelay: `${0.2 * (index + 1)}s` }}
-                  >
-                    <div className="w-12 h-12 bg-gray-50 rounded-xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                      <IconComponent className="w-6 h-6" aria-hidden="true" />
-                    </div>
-                    <h3 className="text-lg font-bold text-foreground mb-3">
-                      {signal.title}
-                    </h3>
-                    <p className="text-muted leading-relaxed text-sm">
-                      {signal.description}
-                    </p>
+                  className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 group bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-lg hover:border-transparent"
+                  style={{ transitionDelay: `${0.2 * (index + 1)}s` }}
+                >
+                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
+                    <IconComponent className="w-8 h-8" aria-hidden="true" />
                   </div>
-                );
-              })}
-            </div>
-
-            {/* Regions integrated at bottom of grid */}
-            <div
-              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 mt-12 bg-white rounded-3xl p-8 border border-gray-100 text-center"
-              style={{ transitionDelay: "0.6s" }}
-            >
-              <h3 className="text-sm font-medium text-muted uppercase tracking-wide mb-6">
-                Serving clients across
-              </h3>
-              <div className="flex flex-wrap gap-3 justify-center">
-                {[
-                  "United States",
-                  "United Kingdom",
-                  "Europe",
-                  "Canada",
-                  "Australia",
-                ].map((region) => (
-                  <span
-                    key={region}
-                    className="px-4 py-2 bg-gray-50 text-primary/80 font-medium rounded-full text-sm hover:bg-primary/5 transition-colors"
-                  >
-                    {region}
-                  </span>
-                ))}
-              </div>
-            </div>
+                  <h3 className="text-lg font-bold text-foreground mb-3">
+                    {signal.title}
+                  </h3>
+                  <p className="text-muted leading-relaxed text-sm">
+                    {signal.description}
+                  </p>
+                </div>
+              );
+            })}
+          </div>
           </div>
         </div>
       </div>

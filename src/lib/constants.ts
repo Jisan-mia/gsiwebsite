@@ -2,17 +2,27 @@ export const siteConfig = {
   name: "GSiTech Solutions & Consultancy",
   shortName: "GSiTech",
   description:
-    "Scalable, secure, and cost-effective BPO & call center outsourcing—without sacrificing quality or control. Serving USA, UK, Europe, Canada, and Australia.",
+    "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
   url: "https://gsitech.com",
-  ogImage: "/images/og-image.jpg",
-  email: "info@gsitech.com",
-  phone: "+880 1700-000000",
-  address: "House 25, Road 11, Sector 4, Uttara, Dhaka 1230, Bangladesh",
+  ogImage: "/og-image.svg",
+  email: "gsitechsolution@gmail.com",
+  phone: "+8801865640940",
+  whatsappLink: "https://wa.me/qr/UTNLZDT3IX26C1",
+  address: "Plot no-7, Road Number 1, Dhaka 1207, Bangladesh",
   regions: ["USA", "UK", "Europe", "Canada", "Australia"],
+  industries: [
+    "E-commerce",
+    "Healthcare",
+    "FinTech",
+    "SaaS",
+    "Travel & Hospitality",
+    "Telecommunications",
+    "Retail",
+  ],
   socials: {
-    linkedin: "https://linkedin.com/company/gsitech",
-    twitter: "https://twitter.com/gsitech",
-    facebook: "https://facebook.com/gsitech",
+    linkedin: "https://www.linkedin.com/in/mahmudul-hassan-joy-4891a83a5/",
+    twitter: "",
+    facebook: "https://www.facebook.com/profile.php?id=61582858552667",
   },
 };
 
@@ -40,12 +50,12 @@ export const services = [
   },
   {
     id: "outbound",
-    title: "Outbound Services",
+    title: "Outbound Services / Telesales",
     description:
       "Proactive outreach campaigns that drive sales, generate leads, and strengthen customer relationships.",
     icon: "PhoneOutgoing",
     features: [
-      "Telemarketing & Sales",
+      "Telesales & Telemarketing",
       "Lead Generation",
       "Survey & Market Research",
       "Appointment Setting",
@@ -78,29 +88,31 @@ export const services = [
     ],
   },
   {
-    id: "training",
-    title: "Call Center Training",
+    id: "training-security",
+    title: "Training & Security Programs",
     description:
-      "Comprehensive training programs covering communication, systems, and soft skills.",
+      "Comprehensive agent training combined with security awareness to keep teams sharp and compliant.",
     icon: "GraduationCap",
     features: [
-      "Onboarding",
-      "Ongoing Coaching",
-      "Product Training",
-      "Skill Development",
+      "Onboarding & Coaching",
+      "Product & Process Training",
+      "Soft Skills Development",
+      "Security Awareness",
+      "Threat Recognition",
+      "Compliance Readiness",
     ],
   },
   {
-    id: "security",
-    title: "Security Training",
+    id: "digital",
+    title: "Web Development & Social Media Marketing",
     description:
-      "Phishing awareness and security training to protect your organization.",
-    icon: "ShieldCheck",
+      "Modern websites and consistent social media growth strategies that strengthen your online presence.",
+    icon: "Globe",
     features: [
-      "Phishing Awareness",
-      "Threat Recognition",
-      "Simulations",
-      "Compliance",
+      "Website Design & Development",
+      "Landing Pages & Funnels",
+      "Social Media Management",
+      "Content & Campaign Planning",
     ],
   },
 ];
@@ -199,7 +211,7 @@ export const trustSignals = [
   {
     icon: "Scaling",
     title: "Scalable Teams",
-    description: "Quickly scale from 5 to 500+ agents based on your needs.",
+    description: "Quickly scale from 5 to 10+ agents based on your needs.",
   },
   {
     icon: "Handshake",
@@ -222,7 +234,7 @@ export const trustSignals = [
 
 export const metrics = [
   { value: "98%", label: "Client Satisfaction Rate" },
-  { value: "500+", label: "Trained Agents" },
+  { value: "10+", label: "Trained Agents" },
   { value: "40-60%", label: "Cost Savings" },
   { value: "24/7", label: "Support Coverage" },
 ];
@@ -248,7 +260,7 @@ export const testimonials = [
   },
   {
     quote:
-      "Scaling from 10 to 100 agents in just 3 weeks during our peak season was seamless. GSiTech handled everything professionally, and our customers never noticed the change.",
+      "Scaling from 5 to 10 agents in just a few weeks during our peak season was seamless. GSiTech handled everything professionally, and our customers never noticed the change.",
     author: "Emily Rodriguez",
     role: "Director of Customer Experience",
     company: "ShopSmart",
@@ -297,41 +309,41 @@ export const faqs = [
   {
     question: "How quickly can you launch a team for us?",
     answer:
-      "Depending on team size and complexity, we can have your dedicated team operational within 2-4 weeks. For urgent requirements, we offer expedited onboarding with existing trained agents.",
+      "Depending on team size and complexity, we can have your dedicated team operational within 2-4 weeks. For urgent requirements, we can fast-track onboarding with pre-trained agents and a focused ramp-up plan.",
   },
   {
     question: "Which time zones do you support?",
     answer:
-      "We provide 24/7 coverage across all major time zones. Our operations are designed to seamlessly support customers in the USA, UK, Europe, Canada, Australia, and beyond.",
+      "We provide 24/7 coverage across all major time zones. Our staffing model supports customers in the USA, UK, Europe, Canada, Australia, and other global markets with consistent service quality.",
   },
   {
     question: "How do you ensure quality and security?",
     answer:
-      "We implement rigorous QA processes including call monitoring, regular audits, and performance reviews. Our facilities are SOC 2 compliant with enterprise-grade security, encrypted communications, and strict data handling protocols.",
+      "We use structured QA programs with monitoring, coaching, and performance reviews. Our security approach includes access controls, secure tooling, and data-handling policies aligned to your compliance requirements.",
   },
   {
     question: "Is this suitable for small businesses?",
     answer:
-      "Absolutely! We work with businesses of all sizes, from startups needing 5 agents to enterprises requiring 500+. Our flexible pricing and scaling options make professional BPO accessible to everyone.",
+      "Absolutely. We work with businesses of all sizes, from startups needing 5 agents to teams requiring 10+. Our flexible pricing and scaling options make professional BPO accessible without heavy overhead.",
   },
   {
     question: "What industries do you serve?",
     answer:
-      "We have extensive experience across e-commerce, healthcare, financial services, technology, travel, telecommunications, and more. Our agents receive industry-specific training for your vertical.",
+      "We support e-commerce, healthcare, financial services, technology, travel, telecommunications, and more. Teams receive industry-specific training so your customers get informed, on-brand support.",
   },
   {
     question: "How do you handle training for our specific processes?",
     answer:
-      "We develop custom training programs based on your products, processes, and brand voice. Our dedicated training team works closely with you to ensure agents represent your company perfectly.",
+      "We build custom training based on your products, workflows, and brand voice. Our training team partners with you to validate scripts, knowledge bases, and QA benchmarks before launch.",
   },
   {
     question: "What technology platforms do you support?",
     answer:
-      "We integrate with all major CRM and helpdesk platforms including Salesforce, Zendesk, Freshdesk, HubSpot, and more. We can also work with your existing tools and systems.",
+      "We integrate with popular CRM and helpdesk platforms like Salesforce, Zendesk, Freshdesk, and HubSpot. We can also adapt to your existing tools and custom workflows.",
   },
   {
     question: "What are your pricing models?",
     answer:
-      "We offer flexible pricing including per-agent, per-hour, per-transaction, and hybrid models. During consultation, we'll recommend the most cost-effective approach for your specific needs.",
+      "We offer flexible pricing including per-agent, per-hour, per-transaction, and hybrid models. During consultation, we recommend the most cost-effective structure for your goals and volume.",
   },
 ];

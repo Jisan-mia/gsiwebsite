@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import {
   Linkedin,
   Twitter,
@@ -50,8 +51,14 @@ export default function Footer() {
           {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center">
-                <span className="text-primary font-bold text-lg">G</span>
+              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+                <Image
+                  src="/logo.webp"
+                  alt="GSiTech logo"
+                  width={32}
+                  height={32}
+                  className="object-contain"
+                />
               </div>
               <div>
                 <span className="font-bold text-lg text-white block leading-tight">
@@ -68,33 +75,39 @@ export default function Footer() {
             </p>
             {/* Social Links */}
             <div className="flex gap-4">
-              <a
-                href={siteConfig.socials.linkedin}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="Follow us on LinkedIn"
-              >
-                <Linkedin className="w-5 h-5" aria-hidden="true" />
-              </a>
-              <a
-                href={siteConfig.socials.twitter}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="Follow us on Twitter"
-              >
-                <Twitter className="w-5 h-5" aria-hidden="true" />
-              </a>
-              <a
-                href={siteConfig.socials.facebook}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
-                aria-label="Follow us on Facebook"
-              >
-                <Facebook className="w-5 h-5" aria-hidden="true" />
-              </a>
+              {siteConfig.socials.linkedin ? (
+                <a
+                  href={siteConfig.socials.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                  aria-label="Follow us on LinkedIn"
+                >
+                  <Linkedin className="w-5 h-5" aria-hidden="true" />
+                </a>
+              ) : null}
+              {siteConfig.socials.twitter ? (
+                <a
+                  href={siteConfig.socials.twitter}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                  aria-label="Follow us on Twitter"
+                >
+                  <Twitter className="w-5 h-5" aria-hidden="true" />
+                </a>
+              ) : null}
+              {siteConfig.socials.facebook ? (
+                <a
+                  href={siteConfig.socials.facebook}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center hover:bg-accent transition-colors"
+                  aria-label="Follow us on Facebook"
+                >
+                  <Facebook className="w-5 h-5" aria-hidden="true" />
+                </a>
+              ) : null}
             </div>
           </div>
 
@@ -117,43 +130,20 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Services */}
-          <div>
-            <h3 className="font-semibold text-lg mb-4">Services</h3>
-            <ul className="space-y-3" role="list">
-              {[
-                "Inbound Services",
-                "Outbound Services",
-                "Blended Campaigns",
-                "Managed BPO",
-                "Training & Development",
-              ].map((service) => (
-                <li key={service}>
-                  <Link
-                    href="#services"
-                    className="text-white/70 hover:text-white transition-colors"
-                  >
-                    {service}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </div>
-
           {/* Contact Info */}
           <div>
             <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
             <ul className="space-y-4" role="list">
               <li>
                 <a
-                  href={`tel:${siteConfig.phone}`}
+                  href={siteConfig.whatsappLink}
                   className="flex items-start gap-3 text-white/70 hover:text-white transition-colors"
                 >
                   <Phone
                     className="w-5 h-5 shrink-0 mt-0.5"
                     aria-hidden="true"
                   />
-                  {siteConfig.phone}
+                  WhatsApp: {siteConfig.phone}
                 </a>
               </li>
               <li>
@@ -176,6 +166,28 @@ export default function Footer() {
                 <address className="not-italic">{siteConfig.address}</address>
               </li>
             </ul>
+          </div>
+
+          {/* WhatsApp QR */}
+          <div>
+            <h3 className="font-semibold text-lg mb-4">WhatsApp</h3>
+            <div className="bg-white/10 rounded-2xl p-4 border border-white/10">
+              <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white">
+                <Image
+                  src="/qr-image.png"
+                  alt="Scan to add GSiTech on WhatsApp"
+                  fill
+                  sizes="220px"
+                  className="object-contain"
+                />
+              </div>
+              <a
+                href={siteConfig.whatsappLink}
+                className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-xl bg-white text-primary font-semibold text-sm hover:bg-gray-100 transition-colors"
+              >
+                Scan or tap to connect
+              </a>
+            </div>
           </div>
         </div>
       </div>

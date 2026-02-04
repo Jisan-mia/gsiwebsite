@@ -14,7 +14,7 @@ import Footer from "@/components/Footer";
 export const metadata: Metadata = {
   title: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
   description:
-    "Scalable, secure, and cost-effective BPO & call center outsourcing services. Save 40-60% on operational costs with our skilled offshore teams. Serving USA, UK, Europe, Canada, and Australia.",
+    "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
 };
 
 export default function Home() {

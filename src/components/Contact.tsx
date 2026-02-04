@@ -111,9 +111,9 @@ export default function Contact() {
                   />
                 </div>
                 <div>
-                  <div className="font-bold text-gray-900 mb-1">Phone</div>
+                  <div className="font-bold text-gray-900 mb-1">WhatsApp</div>
                   <a
-                    href={`tel:${siteConfig.phone}`}
+                    href={siteConfig.whatsappLink}
                     className="text-gray-600 hover:text-primary transition-colors"
                   >
                     {siteConfig.phone}

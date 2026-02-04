@@ -91,14 +91,14 @@ export default function Process() {
                   <div className="flex flex-col items-center text-center">
                     <div className="relative flex items-center justify-center mb-8">
                       {/* Background Glow */}
-                      <div className="absolute inset-0 bg-accent/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+                      <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
-                      <div className="relative w-22 h-22 bg-white rounded-full border border-gray-100 shadow-sm flex items-center justify-center p-6 group-hover:scale-110 group-hover:border-accent/30 transition-all duration-300 z-10">
+                      <div className="relative w-22 h-22 bg-primary rounded-full border border-primary/20 shadow-sm flex items-center justify-center p-6 group-hover:scale-110 group-hover:border-primary/40 transition-all duration-300 z-10">
                         <Icon
                           strokeWidth={1.5}
-                          className="w-10 h-10 text-primary group-hover:text-accent transition-colors duration-300"
+                          className="w-10 h-10 text-white transition-colors duration-300"
                         />
-                        <span className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-primary text-white text-sm font-bold flex items-center justify-center">
+                        <span className="absolute -top-1 -right-1 w-8 h-8 rounded-full bg-white text-primary text-sm font-bold flex items-center justify-center">
                           {index + 1}
                         </span>
                       </div>

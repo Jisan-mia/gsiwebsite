@@ -1,9 +1,16 @@
 {
   "name": "GSiTech Solutions & Consultancy",
   "short_name": "GSiTech",
-  "description": "Scalable, secure, and cost-effective BPO & call center outsourcing services",
+  "description": "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom.",
   "start_url": "/",
   "display": "standalone",
   "background_color": "#ffffff",
-  "theme_color": "#101d80"
+  "theme_color": "#101d80",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
 }
