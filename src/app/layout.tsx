@@ -153,7 +153,6 @@ const jsonLd = {
           itemOffered: {
             "@type": "Service",
             name: service.title,
-            description: service.description,
           },
         })),
       },
