@@ -65,9 +65,9 @@ export default function Hero() {
             >
               BPO & Call Center Outsourcing
               <br className="hidden lg:block" />
-              that elevates{" "}
+              that drives{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-light">
-                customer experience
+                Business Growth.
               </span>
             </h1>
 
@@ -75,9 +75,10 @@ export default function Hero() {
               className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
               style={{ transitionDelay: "0.3s" }}
             >
-              Specialized teams for e-commerce, healthcare, fintech, SaaS,
-              travel, and telecom. We handle inbound support, outbound
-              telesales, and managed operations so you can focus on growth.
+              Al-powered BPO & business development for SMEs— customer Support,
+              back-office, sales, marketing, and digital services, with
+              specialized teams across e-commerce, healthcare, fintech, SaaS,
+              real estate, travel, and telecom.
             </p>
 
             <div

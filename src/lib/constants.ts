@@ -36,83 +36,53 @@ export const navigation = [
 
 export const services = [
   {
-    id: "inbound",
-    title: "Inbound Services",
-    description:
-      "Professional customer support, help desk, and inquiry handling that keeps your customers satisfied 24/7.",
+    id: "customer-support",
+    title: "Customer Support",
     icon: "PhoneIncoming",
     features: [
-      "Customer Support & Help Desk",
-      "Order Processing & Tracking",
-      "Technical Support",
-      "Inquiry & Complaint Handling",
+      "Call centers (Inbound & outbound)",
+      "Email, chat, and social media support",
+      "Technical support & help desks",
     ],
   },
   {
-    id: "outbound",
-    title: "Outbound Services / Telesales",
-    description:
-      "Proactive outreach campaigns that drive sales, generate leads, and strengthen customer relationships.",
+    id: "back-office",
+    title: "Back-Office Operations",
+    icon: "Settings",
+    features: ["Data Entry", "Data processing", "Invoice processing"],
+  },
+  {
+    id: "sales-marketing",
+    title: "Sales & Marketing Support",
     icon: "PhoneOutgoing",
     features: [
-      "Telesales & Telemarketing",
-      "Lead Generation",
-      "Survey & Market Research",
-      "Appointment Setting",
+      "Telemarketing & lead generation",
+      "Appointment setting",
+      "Market research & surveys",
     ],
   },
   {
-    id: "blended",
-    title: "Blended Campaigns",
-    description:
-      "Flexible teams that handle both inbound and outbound operations for maximum efficiency.",
+    id: "it-digital",
+    title: "IT & Digital Services",
+    icon: "Globe",
+    features: ["Webpage development & maintenance", "Social media Marketing"],
+  },
+  {
+    id: "training",
+    title: "Training Programs",
+    icon: "GraduationCap",
+    features: ["Call center & BPO training", "Cybersecurity and AI training"],
+  },
+  {
+    id: "sme-package",
+    title: "SME Business Development Package",
     icon: "Shuffle",
     features: [
-      "Hybrid Support Teams",
-      "Cross-trained Agents",
-      "Flexible Scaling",
-      "Unified Reporting",
-    ],
-  },
-  {
-    id: "managed",
-    title: "Managed BPO Services",
-    description:
-      "End-to-end managed operations including training, QA, and performance optimization.",
-    icon: "Settings",
-    features: [
-      "Dedicated Operations Team",
-      "Quality Assurance",
-      "Performance Analytics",
-      "Process Optimization",
-    ],
-  },
-  {
-    id: "training-security",
-    title: "Training & Security Programs",
-    description:
-      "Comprehensive agent training combined with security awareness to keep teams sharp and compliant.",
-    icon: "GraduationCap",
-    features: [
-      "Onboarding & Coaching",
-      "Product & Process Training",
-      "Soft Skills Development",
-      "Security Awareness",
-      "Threat Recognition",
-      "Compliance Readiness",
-    ],
-  },
-  {
-    id: "digital",
-    title: "Web Development & Social Media Marketing",
-    description:
-      "Modern websites and consistent social media growth strategies that strengthen your online presence.",
-    icon: "Globe",
-    features: [
-      "Website Design & Development",
-      "Landing Pages & Funnels",
-      "Social Media Management",
-      "Content & Campaign Planning",
+      "Customer Handling & Support",
+      "Back-office operations",
+      "Webpage and social Media Marketing Support",
+      "Telesales & Lead Generation",
+      "Business Development & Growth Support",
     ],
   },
 ];

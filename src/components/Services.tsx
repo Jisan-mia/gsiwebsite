@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 import {
   PhoneIncoming,
   PhoneOutgoing,
@@ -8,7 +8,6 @@ import {
   Settings,
   GraduationCap,
   Globe,
-  ChevronRight,
 } from "lucide-react";
 import { services, siteConfig } from "@/lib/constants";
 
@@ -23,7 +22,6 @@ const iconMap = {
 
 export default function Services() {
   const sectionRef = useRef<HTMLElement>(null);
-  const [expandedCard, setExpandedCard] = useState<string | null>(null);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -42,10 +40,6 @@ export default function Services() {
 
     return () => observer.disconnect();
   }, []);
-
-  const toggleExpand = (id: string) => {
-    setExpandedCard(expandedCard === id ? null : id);
-  };
 
   return (
     <section
@@ -97,7 +91,6 @@ export default function Services() {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {services.map((service, index) => {
             const IconComponent = iconMap[service.icon as keyof typeof iconMap];
-            const isExpanded = expandedCard === service.id;
 
             return (
               <article
@@ -115,49 +108,25 @@ export default function Services() {
                   </div>
 
                   {/* Content */}
-                  <h3 className="text-xl font-bold text-foreground mb-3">
+                  <h3 className="text-xl font-bold text-foreground mb-4">
                     {service.title}
                   </h3>
-                  <p className="text-muted leading-relaxed mb-4">
-                    {service.description}
-                  </p>
 
-                  {/* Features (expandable) */}
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      isExpanded ? "max-h-48 opacity-100" : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <ul className="space-y-2 mb-4" role="list">
-                      {service.features.map((feature) => (
-                        <li
-                          key={feature}
-                          className="flex items-center gap-2 text-sm text-muted"
-                        >
-                          <span
-                            className="w-1.5 h-1.5 bg-primary rounded-full shrink-0"
-                            aria-hidden="true"
-                          />
-                          {feature}
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-
-                  {/* Expand/Collapse button */}
-                  <button
-                    type="button"
-                    onClick={() => toggleExpand(service.id)}
-                    className="inline-flex items-center gap-1 text-primary font-medium text-sm hover:text-primary-light transition-colors"
-                    aria-expanded={isExpanded}
-                    aria-controls={`service-features-${service.id}`}
-                  >
-                    {isExpanded ? "Show Less" : "Learn More"}
-                    <ChevronRight
-                      className={`w-4 h-4 transition-transform ${isExpanded ? "rotate-90" : ""}`}
-                      aria-hidden="true"
-                    />
-                  </button>
+                  {/* Features */}
+                  <ul className="space-y-2" role="list">
+                    {service.features.map((feature) => (
+                      <li
+                        key={feature}
+                        className="flex items-start gap-2 text-sm text-muted"
+                      >
+                        <span
+                          className="w-1.5 h-1.5 bg-primary rounded-full shrink-0 mt-1.5"
+                          aria-hidden="true"
+                        />
+                        {feature}
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               </article>
             );
