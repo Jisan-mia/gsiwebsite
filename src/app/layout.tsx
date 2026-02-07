@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://gsitech.com"),
+  metadataBase: new URL("https://jisan-mia.github.io/gsiwebsite"),
   title: {
     default: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
     template: "%s | GSiTech Solutions & Consultancy",
