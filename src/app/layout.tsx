@@ -23,7 +23,7 @@ export const viewport: Viewport = {
 };
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://jisan-mia.github.io/gsiwebsite"),
+  metadataBase: new URL("https://gsitechbd.com"),
   title: {
     default: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
     template: "%s | GSiTech Solutions & Consultancy",
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://gsitech.com",
+    url: "https://gsitechbd.com",
     siteName: "GSiTech Solutions & Consultancy",
     title: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
     description:
@@ -99,7 +99,7 @@ export const metadata: Metadata = {
     },
   },
   alternates: {
-    canonical: "https://gsitech.com",
+    canonical: "https://gsitechbd.com",
   },
   category: "Business Services",
   icons: {

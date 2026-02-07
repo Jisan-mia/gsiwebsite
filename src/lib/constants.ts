@@ -3,7 +3,7 @@ export const siteConfig = {
   shortName: "GSiTech",
   description:
     "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
-  url: "https://gsitech.com",
+  url: "https://gsitechbd.com",
   ogImage: "/og-image.svg",
   email: "gsitechsolution@gmail.com",
   phone: "+8801865640940",

@@ -11,6 +11,6 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/api/", "/admin/"],
       },
     ],
-    sitemap: "https://jisan-mia.github.io/gsiwebsite/sitemap.xml",
+    sitemap: "https://gsitechbd.com/sitemap.xml",
   };
 }
