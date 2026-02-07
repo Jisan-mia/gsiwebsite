@@ -31,17 +31,21 @@ jobs:
           static_site_generator: next
 
       - name: Build with Next.js 🏗️
-        run: npx next build
+        run: |
+          npx next build
+          echo "Build completed, checking output..."
+          ls -la
 
       - name: List build output 🔍
         run: |
           echo "Checking if out directory exists..."
-          ls -la
           if [ -d "out" ]; then
-            echo "out directory found!"
+            echo "✅ out directory found!"
             ls -la out/
           else
-            echo "ERROR: out directory not found!"
+            echo "❌ ERROR: out directory not found!"
+            echo "Current directory contents:"
+            ls -la
             exit 1
           fi
 
