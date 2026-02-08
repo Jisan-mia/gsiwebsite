@@ -32,6 +32,7 @@ export const navigation = [
   { name: "Process", href: "#process" },
   { name: "Testimonials", href: "#testimonials" },
   { name: "FAQ", href: "#faq" },
+  { name: "About", href: "#about" },
 ];
 
 export const services = [
@@ -68,14 +69,8 @@ export const services = [
     features: ["Webpage development & maintenance", "Social media Marketing"],
   },
   {
-    id: "training",
-    title: "Training Programs",
-    icon: "GraduationCap",
-    features: ["Call center & BPO training", "Cybersecurity and AI training"],
-  },
-  {
     id: "sme-package",
-    title: "SME Business Development Package",
+    title: "SME All-In-One Package",
     icon: "Shuffle",
     features: [
       "Customer Handling & Support",
@@ -84,6 +79,12 @@ export const services = [
       "Telesales & Lead Generation",
       "Business Development & Growth Support",
     ],
+  },
+  {
+    id: "training",
+    title: "Training Programs",
+    icon: "GraduationCap",
+    features: ["Call center & BPO training", "Freelance and Outsourcing training"],
   },
 ];
 
@@ -317,3 +318,28 @@ export const faqs = [
       "We offer flexible pricing including per-agent, per-hour, per-transaction, and hybrid models. During consultation, we recommend the most cost-effective structure for your goals and volume.",
   },
 ];
+
+export const aboutUs = {
+  sections: [
+    {
+      id: "who-we-are",
+      title: "Who We Are",
+      content:
+        "GSiTech is the technology and outsourcing division of GSi, delivering AI-powered customer support, back-office operations, telesales, marketing, IT, and digital services. Our specialized teams serve e-commerce, healthcare, fintech, SaaS, real estate, travel, telecom, and professional services, helping businesses scale efficiently while elevating customer experience.",
+      highlight:
+        "We combine technology, human expertise, and operational excellence to provide solutions that are reliable, flexible, and globally competitive.",
+    },
+    {
+      id: "vision-impact",
+      title: "Our Vision & Impact",
+      content:
+        "We envision a Bangladesh where skilled, educated youth have meaningful job opportunities while global and local businesses benefit from cost-effective, high-quality outsourcing solutions.",
+      highlight:
+        "Founded by Mohammad M.H. Joy, who returned to Bangladesh after studying and working in London, GSiTech bridges skill development, social impact, and business growth. Our mission is to empower young professionals and equip them with the tools to thrive in a global workforce.",
+    }
+  ],
+  image: {
+    url: "/joy.jpeg",
+    alt: "Mohammad M.H. Joy - Founder of GSiTech",
+  },
+};

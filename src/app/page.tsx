@@ -9,6 +9,7 @@ import Testimonials from "@/components/Testimonials";
 import Process from "@/components/Process";
 import FAQ from "@/components/FAQ";
 import Contact from "@/components/Contact";
+import AboutUs from "@/components/AboutUs";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
@@ -31,6 +32,7 @@ export default function Home() {
         <Process />
         <FAQ />
         <Contact />
+        <AboutUs />
       </main>
       <Footer />
     </>

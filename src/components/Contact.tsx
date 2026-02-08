@@ -363,12 +363,23 @@ export default function Contact() {
                           className="w-full px-4 py-3 rounded-xl bg-gray-50 border-transparent focus:bg-white focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all duration-200 outline-none appearance-none"
                         >
                           <option value="">Select a service</option>
-                          <option value="inbound">Inbound Services</option>
-                          <option value="outbound">Outbound Services</option>
-                          <option value="blended">Blended Campaigns</option>
-                          <option value="managed">Managed BPO Services</option>
+                          <option value="customer-support">
+                            Customer Support
+                          </option>
+                          <option value="back-office">
+                            Back-Office Operations
+                          </option>
+                          <option value="sales-marketing">
+                            Sales & Marketing Support
+                          </option>
+                          <option value="it-digital">
+                            IT & Digital Services
+                          </option>
+                          <option value="sme-package">
+                            SME All-In-One Package
+                          </option>
                           <option value="training">
-                            Training & Development
+                            Training Programs 
                           </option>
                           <option value="other">
                             Other / Multiple Services
