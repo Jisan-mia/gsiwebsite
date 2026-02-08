@@ -39,11 +39,52 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Simulate form submission
-    await new Promise((resolve) => setTimeout(resolve, 1500));
+    try {
+      const form = new FormData();
+      form.append("name", formData.name);
+      form.append("email", formData.email);
+      form.append("company", formData.company);
+      form.append("phone", formData.phone);
+      form.append("service", formData.service);
+      form.append("message", formData.message);
+      form.append(
+        "_subject",
+        `New Contact Form Submission from ${formData.name}`,
+      );
+      form.append("_captcha", "false");
+      form.append("_template", "table");
 
-    setIsSubmitting(false);
-    setIsSubmitted(true);
+      const response = await fetch(
+        "https://formsubmit.co/gsitechsolution@gmail.com",
+        {
+          method: "POST",
+          body: form,
+        },
+      );
+
+      if (response.ok) {
+        setIsSubmitted(true);
+        setFormData({
+          name: "",
+          email: "",
+          company: "",
+          phone: "",
+          service: "",
+          message: "",
+        });
+      } else {
+        alert(
+          "Something went wrong. Please try again or contact us directly via email.",
+        );
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
+      alert(
+        "Something went wrong. Please try again or contact us directly via email.",
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleInputChange = (

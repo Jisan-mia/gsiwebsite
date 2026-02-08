@@ -63,9 +63,9 @@ export default function Hero() {
               className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 text-4xl sm:text-5xl lg:text-5xl/tight font-bold text-gray-900 tracking-tight"
               style={{ transitionDelay: "0.2s" }}
             >
-              BPO & Call Center Outsourcing
+              BPO & Call Center Outsourcing that{" "}
               <br className="hidden lg:block" />
-              that drives{" "}
+              drives{" "}
               <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-light">
                 Business Growth.
               </span>
@@ -75,7 +75,7 @@ export default function Hero() {
               className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
               style={{ transitionDelay: "0.3s" }}
             >
-              Al-powered BPO & business development for SMEs— customer Support,
+              Al-powered BPO services for SMEs — customer support,
               back-office, sales, marketing, and digital services, with
               specialized teams across e-commerce, healthcare, fintech, SaaS,
               real estate, travel, and telecom.
