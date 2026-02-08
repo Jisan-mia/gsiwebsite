@@ -42,7 +42,7 @@ export const services = [
     icon: "PhoneIncoming",
     features: [
       "Call centers (Inbound & outbound)",
-      "Email, chat, and social media support",
+      "Email, chat, and Omnichannel support",
       "Technical support & help desks",
     ],
   },
@@ -84,7 +84,10 @@ export const services = [
     id: "training",
     title: "Training Programs",
     icon: "GraduationCap",
-    features: ["Call center & BPO training", "Freelance and Outsourcing training"],
+    features: [
+      "Call center & BPO training",
+      "Freelance and Outsourcing training",
+    ],
   },
 ];
 
@@ -182,7 +185,7 @@ export const trustSignals = [
   {
     icon: "Scaling",
     title: "Scalable Teams",
-    description: "Quickly scale from 5 to 10+ agents based on your needs.",
+    description: "Quickly scale from 5 to 50+ agents based on your needs.",
   },
   {
     icon: "Handshake",
@@ -205,7 +208,7 @@ export const trustSignals = [
 
 export const metrics = [
   { value: "98%", label: "Client Satisfaction Rate" },
-  { value: "10+", label: "Trained Agents" },
+  { value: "50+", label: "Trained Agents" },
   { value: "40-60%", label: "Cost Savings" },
   { value: "24/7", label: "Support Coverage" },
 ];
@@ -295,7 +298,7 @@ export const faqs = [
   {
     question: "Is this suitable for small businesses?",
     answer:
-      "Absolutely. We work with businesses of all sizes, from startups needing 5 agents to teams requiring 10+. Our flexible pricing and scaling options make professional BPO accessible without heavy overhead.",
+      "Absolutely. We work with businesses of all sizes, from startups needing 5 agents to teams requiring 50+. Our flexible pricing and scaling options make professional BPO accessible without heavy overhead.",
   },
   {
     question: "What industries do you serve?",
