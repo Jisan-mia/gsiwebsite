@@ -224,8 +224,6 @@ export const testimonials = [
     author: "E-commerce Client",
     role: "Customer Support Automation",
     company: "60% cost reduction",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
   },
   {
     quote:
@@ -233,8 +231,6 @@ export const testimonials = [
     author: "Retail Brand",
     role: "WhatsApp Sales Automation",
     company: "3x faster lead response",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
   },
   {
     quote:
@@ -242,8 +238,6 @@ export const testimonials = [
     author: "SaaS Operations Team",
     role: "Workflow Automation",
     company: "24/7 process coverage",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
   },
   {
     quote:
@@ -251,8 +245,6 @@ export const testimonials = [
     author: "Subscription Business",
     role: "AI + Human Support Model",
     company: "Higher retention outcomes",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
   },
 ];
 

@@ -1,9 +1,17 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Image from "next/image";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { testimonials } from "@/lib/constants";
+
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
 
 export default function Testimonials() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -78,14 +86,8 @@ export default function Testimonials() {
                   </blockquote>
 
                   <footer className="flex items-center gap-4">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden border border-white/10">
-                      <Image
-                        src={testimonial.image}
-                        alt={testimonial.author}
-                        fill
-                        sizes="56px"
-                        className="object-cover"
-                      />
+                    <div className="w-14 h-14 rounded-full bg-linear-to-br from-primary to-accent text-white flex items-center justify-center font-bold border border-white/10">
+                      {getInitials(testimonial.author)}
                     </div>
                     <div>
                       <cite className="not-italic font-bold text-white block">
@@ -153,14 +155,8 @@ export default function Testimonials() {
               }`}
             >
               <div className="flex items-center gap-3 mb-3">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden border border-white/10">
-                  <Image
-                    src={testimonial.image}
-                    alt=""
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                  />
+                <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-accent text-white flex items-center justify-center text-xs font-bold border border-white/10">
+                  {getInitials(testimonial.author)}
                 </div>
                 <div>
                   <div className="text-sm font-bold text-white">

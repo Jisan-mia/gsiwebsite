@@ -21,6 +21,24 @@ const iconMap = {
   Clock,
 };
 
+const handoffModel = [
+  {
+    task: "Simple queries",
+    owner: "AI",
+    outcome: "Instant answers and data collection",
+  },
+  {
+    task: "Medium tasks",
+    owner: "AI + Human",
+    outcome: "Faster execution with oversight",
+  },
+  {
+    task: "Complex issues",
+    owner: "Human",
+    outcome: "Judgment-led service and retention",
+  },
+];
+
 export default function Solutions() {
   return (
     <section className="py-20 lg:py-28 relative overflow-hidden" aria-labelledby="solutions-heading">
@@ -75,22 +93,18 @@ export default function Solutions() {
             <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-white/10">Handled By</div>
             <div className="px-6 py-4">Outcome</div>
           </div>
-          {[
-            ["Simple queries", "AI", "Instant answers and data collection"],
-            ["Medium tasks", "AI + Human", "Faster execution with oversight"],
-            ["Complex issues", "Human", "Judgment-led service and retention"],
-          ].map(([task, owner, outcome]) => (
+          {handoffModel.map((row) => (
             <div
-              key={task}
+              key={row.task}
               className="grid md:grid-cols-3 border-t border-white/10 text-sm text-slate-300"
             >
               <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-white/10 font-medium text-white">
-                {task}
+                {row.task}
               </div>
               <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-white/10 text-accent font-semibold">
-                {owner}
+                {row.owner}
               </div>
-              <div className="px-6 py-4">{outcome}</div>
+              <div className="px-6 py-4">{row.outcome}</div>
             </div>
           ))}
         </div>

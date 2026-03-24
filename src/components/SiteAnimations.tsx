@@ -4,18 +4,9 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-let isRegistered = false;
-
-function registerPlugins() {
-  if (typeof window !== "undefined" && !isRegistered) {
-    gsap.registerPlugin(ScrollTrigger);
-    isRegistered = true;
-  }
-}
-
 export default function SiteAnimations() {
   useEffect(() => {
-    registerPlugins();
+    gsap.registerPlugin(ScrollTrigger);
 
     const cleanups: Array<() => void> = [];
     const ctx = gsap.context(() => {

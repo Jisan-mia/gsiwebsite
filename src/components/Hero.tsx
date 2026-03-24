@@ -1,10 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
-import { ArrowRight, Play, Trophy, Users, Globe } from "lucide-react";
+import { ArrowRight, Play, Trophy, Users, Globe, Sparkles } from "lucide-react";
 
 export default function Hero() {
+  const heroMetrics = [
+    { value: "50–70%", label: "Lower support costs" },
+    { value: "24/7", label: "Instant customer response" },
+    { value: "2–3x", label: "Faster resolution speed" },
+  ];
+
   return (
     <section
       className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden"
@@ -87,17 +92,13 @@ export default function Hero() {
             </div>
 
             <div className="animate-on-scroll grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
-              {[
-                ["50–70%", "Lower support costs"],
-                ["24/7", "Instant customer response"],
-                ["2–3x", "Faster resolution speed"],
-              ].map(([value, label]) => (
-                <div key={label} className="text-center lg:text-left">
+              {heroMetrics.map((metric) => (
+                <div key={metric.label} className="text-center lg:text-left">
                   <span className="block text-3xl font-bold text-white">
-                    {value}
+                    {metric.value}
                   </span>
                   <span className="text-sm text-slate-300 font-medium">
-                    {label}
+                    {metric.label}
                   </span>
                 </div>
               ))}
@@ -106,17 +107,91 @@ export default function Hero() {
 
           <div className="animate-on-scroll relative lg:h-160 flex items-center justify-center">
             <div className="relative w-full max-w-xl lg:max-w-none">
-              <div className="surface-panel rounded-[2rem] overflow-hidden">
-                <div className="relative rounded-[1.8rem] overflow-hidden">
-                  <Image
-                    src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop"
-                    alt="AI-enabled support team collaborating in a modern workspace"
-                    width={900}
-                    height={700}
-                    className="w-full h-auto object-cover"
-                    priority
-                  />
-                  <div className="absolute inset-0 bg-linear-to-t from-[#071120] via-[#071120]/30 to-transparent" />
+              <div className="surface-panel rounded-[2rem] overflow-hidden p-6 lg:p-8">
+                <div className="gradient-bg rounded-[1.8rem] p-6 lg:p-8 min-h-[32rem] flex flex-col justify-between border border-white/10">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.25em] text-white/70 mb-2">
+                        Omnichannel command center
+                      </p>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-white">
+                        AI + Human operations in one flow
+                      </h3>
+                    </div>
+                    <div className="w-14 h-14 rounded-2xl bg-white/12 border border-white/15 flex items-center justify-center text-white">
+                      <Sparkles className="w-7 h-7" />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr] items-start">
+                    <div className="bg-[#071120]/28 border border-white/12 rounded-3xl p-5 backdrop-blur-sm">
+                      <div className="flex items-center justify-between text-sm text-white/80 mb-5">
+                        <span>Live automation performance</span>
+                        <span className="px-3 py-1 rounded-full bg-white/10 text-white font-semibold">
+                          Active
+                        </span>
+                      </div>
+                      <div className="space-y-4">
+                        {[
+                          ["Email automation", "87% handled instantly"],
+                          ["WhatsApp support", "Lead capture + routing"],
+                          ["Escalation queue", "Human takeover ready"],
+                        ].map(([title, value], index) => (
+                          <div key={title} className="rounded-2xl bg-white/8 border border-white/10 p-4">
+                            <div className="flex items-center justify-between gap-3 text-sm">
+                              <span className="font-semibold text-white">{title}</span>
+                              <span className="text-accent-light">{value}</span>
+                            </div>
+                            <div className="mt-3 h-2 rounded-full bg-white/10 overflow-hidden">
+                              <div
+                                className="h-full rounded-full bg-white"
+                                style={{ width: `${78 - index * 14}%` }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="rounded-3xl bg-[#071120]/28 border border-white/12 p-5 backdrop-blur-sm">
+                        <p className="text-sm text-white/70 mb-3">Channels connected</p>
+                        <div className="grid grid-cols-2 gap-3 text-sm font-semibold text-white">
+                          {[
+                            "Email",
+                            "Website Chat",
+                            "WhatsApp",
+                            "Social Media",
+                          ].map((channel) => (
+                            <div
+                              key={channel}
+                              className="rounded-2xl bg-white/8 border border-white/10 px-3 py-3 text-center"
+                            >
+                              {channel}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="rounded-3xl bg-[#071120]/28 border border-white/12 p-5 backdrop-blur-sm">
+                        <p className="text-sm text-white/70 mb-3">Outcome targets</p>
+                        <div className="space-y-3 text-sm text-white">
+                          <div className="flex items-center justify-between">
+                            <span>Support cost</span>
+                            <span className="text-accent-light font-semibold">-50–70%</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>Response time</span>
+                            <span className="text-accent-light font-semibold">2–3x faster</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>Coverage</span>
+                            <span className="text-accent-light font-semibold">24/7</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
 
