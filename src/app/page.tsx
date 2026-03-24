@@ -13,9 +13,9 @@ import AboutUs from "@/components/AboutUs";
 import Footer from "@/components/Footer";
 
 export const metadata: Metadata = {
-  title: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
+  title: "AI-Powered Customer Support & Business Process Automation | GSiTech",
   description:
-    "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
+    "GSiTech helps global businesses reduce operational costs and scale faster with AI automation, WhatsApp workflows, and human support expertise.",
 };
 
 export default function Home() {
@@ -25,8 +25,8 @@ export default function Home() {
       <main id="main-content">
         <Hero />
         <Problems />
-        <Solutions />
         <Services />
+        <Solutions />
         <Trust />
         <Testimonials />
         <Process />
