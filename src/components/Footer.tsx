@@ -21,37 +21,33 @@ export default function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-primary text-white" role="contentinfo">
-      {/* CTA Banner */}
+    <footer className="bg-[#050d1b] text-white border-t border-white/10" role="contentinfo">
       <div className="border-b border-white/10">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
           <div className="flex flex-col lg:flex-row items-center justify-between gap-8">
             <div className="text-center lg:text-left">
               <h2 className="text-2xl lg:text-3xl font-bold mb-2">
-                Ready to Transform Your Operations?
+                Ready to automate your support and operations?
               </h2>
-              <p className="text-white/70">
-                Join hundreds of businesses that trust GSiTech for their BPO
-                needs.
+              <p className="text-slate-300">
+                Build a faster, lower-cost, AI-first workflow with GSiTech.
               </p>
             </div>
             <Link
               href="#contact"
-              className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-full text-lg transition-all hover:bg-accent hover:text-white hover:shadow-xl hover:scale-105"
+              className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-white font-semibold rounded-full text-lg transition-all hover:shadow-xl hover:shadow-primary/25"
             >
-              Get Started Today
+              Book a Free Consultation
             </Link>
           </div>
         </div>
       </div>
 
-      {/* Main Footer */}
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-12 lg:py-16">
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
-          {/* Company Info */}
           <div className="sm:col-span-2 lg:col-span-1">
             <Link href="/" className="inline-flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-white rounded-lg flex items-center justify-center overflow-hidden">
+              <div className="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center overflow-hidden border border-white/10">
                 <Image
                   src="/logo.webp"
                   alt="GSiTech logo"
@@ -64,16 +60,15 @@ export default function Footer() {
                 <span className="font-bold text-lg text-white block leading-tight">
                   GSiTech
                 </span>
-                <span className="text-xs text-white/60 leading-tight">
-                  Solutions & Consultancy
+                <span className="text-xs text-slate-300 leading-tight">
+                  AI Automation & Hybrid Support
                 </span>
               </div>
             </Link>
-            <p className="text-white/70 mb-6 leading-relaxed">
-              Scalable, secure, and cost-effective BPO & call center outsourcing
-              for global businesses.
+            <p className="text-slate-300 mb-6 leading-relaxed">
+              AI-powered customer support and business process automation for
+              global businesses that want modern, scalable operations.
             </p>
-            {/* Social Links */}
             <div className="flex gap-4">
               {siteConfig.socials.linkedin ? (
                 <a
@@ -111,16 +106,15 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Quick Links */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
+            <h3 className="font-semibold text-lg mb-4">Navigation</h3>
             <nav aria-label="Footer navigation">
               <ul className="space-y-3" role="list">
                 {navigation.map((item) => (
                   <li key={item.name}>
                     <Link
                       href={item.href}
-                      className="text-white/70 hover:text-white transition-colors"
+                      className="text-slate-300 hover:text-white transition-colors"
                     >
                       {item.name}
                     </Link>
@@ -130,48 +124,37 @@ export default function Footer() {
             </nav>
           </div>
 
-          {/* Contact Info */}
           <div>
-            <h3 className="font-semibold text-lg mb-4">Contact Us</h3>
+            <h3 className="font-semibold text-lg mb-4">Contact</h3>
             <ul className="space-y-4" role="list">
               <li>
                 <a
                   href={siteConfig.whatsappLink}
-                  className="flex items-start gap-3 text-white/70 hover:text-white transition-colors"
+                  className="flex items-start gap-3 text-slate-300 hover:text-white transition-colors"
                 >
-                  <Phone
-                    className="w-5 h-5 shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  />
+                  <Phone className="w-5 h-5 shrink-0 mt-0.5" aria-hidden="true" />
                   WhatsApp: {siteConfig.phone}
                 </a>
               </li>
               <li>
                 <a
                   href={`mailto:${siteConfig.email}`}
-                  className="flex items-start gap-3 text-white/70 hover:text-white transition-colors"
+                  className="flex items-start gap-3 text-slate-300 hover:text-white transition-colors"
                 >
-                  <Mail
-                    className="w-5 h-5 shrink-0 mt-0.5"
-                    aria-hidden="true"
-                  />
+                  <Mail className="w-5 h-5 shrink-0 mt-0.5" aria-hidden="true" />
                   {siteConfig.email}
                 </a>
               </li>
-              <li className="flex items-start gap-3 text-white/70">
-                <MapPin
-                  className="w-5 h-5 shrink-0 mt-0.5"
-                  aria-hidden="true"
-                />
+              <li className="flex items-start gap-3 text-slate-300">
+                <MapPin className="w-5 h-5 shrink-0 mt-0.5" aria-hidden="true" />
                 <address className="not-italic">{siteConfig.address}</address>
               </li>
             </ul>
           </div>
 
-          {/* WhatsApp QR */}
           <div>
             <h3 className="font-semibold text-lg mb-4">WhatsApp</h3>
-            <div className="bg-white/10 rounded-2xl p-4 border border-white/10">
+            <div className="bg-white/6 rounded-2xl p-4 border border-white/10">
               <div className="relative w-full aspect-square rounded-xl overflow-hidden bg-white">
                 <Image
                   src="/qr-image.png"
@@ -183,7 +166,7 @@ export default function Footer() {
               </div>
               <a
                 href={siteConfig.whatsappLink}
-                className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-xl bg-white text-primary font-semibold text-sm hover:bg-gray-100 transition-colors"
+                className="mt-4 inline-flex items-center justify-center w-full px-4 py-2.5 rounded-xl bg-white text-primary font-semibold text-sm hover:bg-slate-100 transition-colors"
               >
                 Scan or tap to connect
               </a>
@@ -192,25 +175,18 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom Bar */}
       <div className="border-t border-white/10">
         <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-            <p className="text-white/60 text-sm text-center sm:text-left">
+            <p className="text-slate-400 text-sm text-center sm:text-left">
               © {currentYear} {siteConfig.name}. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
-              <Link
-                href="/privacy"
-                className="text-white/60 hover:text-white text-sm transition-colors"
-              >
-                Privacy Policy
+              <Link href="#about" className="text-slate-400 hover:text-white text-sm transition-colors">
+                About
               </Link>
-              <Link
-                href="/terms"
-                className="text-white/60 hover:text-white text-sm transition-colors"
-              >
-                Terms of Service
+              <Link href="#contact" className="text-slate-400 hover:text-white text-sm transition-colors">
+                Contact
               </Link>
               <button
                 type="button"
