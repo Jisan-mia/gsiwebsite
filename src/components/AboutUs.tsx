@@ -93,7 +93,6 @@ export default function AboutUs() {
                   fill
                   className="object-cover object-bottom"
                   sizes="(max-width: 1024px) 100vw, 50vw"
-                  priority
                 />
                 <div className="absolute inset-0 bg-linear-to-t from-[#071120]/70 via-transparent to-transparent" />
               </div>

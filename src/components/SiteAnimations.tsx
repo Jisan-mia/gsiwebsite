@@ -4,12 +4,9 @@ import { useEffect } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-let isRegistered = false;
-
 function registerPlugins() {
-  if (typeof window !== "undefined" && !isRegistered) {
+  if (typeof window !== "undefined") {
     gsap.registerPlugin(ScrollTrigger);
-    isRegistered = true;
   }
 }
 

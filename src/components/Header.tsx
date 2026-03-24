@@ -12,7 +12,16 @@ const NAV_OFFSET = 120;
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [activeHref, setActiveHref] = useState<string>(navigation[0]?.href ?? "#services");
+  const [activeHref, setActiveHref] = useState<string>(() => {
+    if (typeof window !== "undefined") {
+      const hash = window.location.hash;
+      if (hash && navigation.some((item) => item.href === hash)) {
+        return hash;
+      }
+    }
+
+    return navigation[0]?.href ?? "#services";
+  });
 
   const sectionIds = useMemo(
     () => navigation.map((item) => item.href).filter((href) => href.startsWith("#")),
@@ -56,11 +65,6 @@ export default function Header() {
   }, [isMobileMenuOpen]);
 
   useEffect(() => {
-    const initialHash = window.location.hash;
-    if (initialHash && sectionIds.includes(initialHash)) {
-      setActiveHref(initialHash);
-    }
-
     const sections = sectionIds
       .map((href) => document.querySelector<HTMLElement>(href))
       .filter((section): section is HTMLElement => Boolean(section));
@@ -128,7 +132,6 @@ export default function Header() {
                     width={36}
                     height={36}
                     className="object-contain"
-                    priority
                   />
                 </div>
                 <div className="flex flex-col">
