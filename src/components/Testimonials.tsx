@@ -1,37 +1,26 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
-import Image from "next/image";
+import { useEffect, useState } from "react";
 import { ChevronLeft, ChevronRight, Quote } from "lucide-react";
 import { testimonials } from "@/lib/constants";
 
+function getInitials(name: string) {
+  return name
+    .split(" ")
+    .map((part) => part[0])
+    .join("")
+    .slice(0, 2)
+    .toUpperCase();
+}
+
 export default function Testimonials() {
-  const sectionRef = useRef<HTMLElement>(null);
   const [activeIndex, setActiveIndex] = useState(0);
 
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
-  // Auto-advance testimonials
   useEffect(() => {
     const timer = setInterval(() => {
       setActiveIndex((prev) => (prev + 1) % testimonials.length);
     }, 6000);
+
     return () => clearInterval(timer);
   }, []);
 
@@ -47,54 +36,38 @@ export default function Testimonials() {
 
   return (
     <section
-      ref={sectionRef}
-      id="testimonials"
-      className="py-20 lg:py-28 bg-white"
+      id="results"
+      className="py-20 lg:py-28"
       aria-labelledby="testimonials-heading"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4"
-            style={{ transitionDelay: "0.1s" }}
-          >
-            Client Success Stories
+          <span className="animate-on-scroll inline-block text-accent font-semibold text-sm uppercase tracking-[0.2em] mb-4">
+            Results
           </span>
           <h2
             id="testimonials-heading"
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
-            style={{ transitionDelay: "0.2s" }}
+            className="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
-            What Our <span className="gradient-text">Clients Say</span>
+            Case study outcomes that show the <span className="gradient-text">hybrid model at work</span>
           </h2>
-          <p
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted"
-            style={{ transitionDelay: "0.3s" }}
-          >
-            Don&apos;t just take our word for it. Hear from businesses that have
-            transformed their operations with GSiTech.
+          <p className="animate-on-scroll text-lg text-slate-300">
+            Real-world examples of how AI workflows and human expertise reshape
+            support, sales, and back-office performance.
           </p>
         </div>
 
-        {/* Testimonials Carousel */}
         <div
-          className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 relative max-w-4xl mx-auto"
-          style={{ transitionDelay: "0.4s" }}
+          className="animate-on-scroll relative max-w-4xl mx-auto"
           role="region"
-          aria-label="Testimonials carousel"
+          aria-label="Results carousel"
         >
-          {/* Main testimonial */}
-          <div className="bg-primary rounded-3xl p-8 lg:p-12 relative overflow-hidden">
-            {/* Quote icon */}
-            <div
-              className="absolute top-6 right-6 lg:top-8 lg:right-8 text-white/15"
-              aria-hidden="true"
-            >
+          <div className="surface-panel rounded-[2rem] p-8 lg:p-12 relative overflow-hidden">
+            <div className="absolute top-6 right-6 lg:top-8 lg:right-8 text-white/10" aria-hidden="true">
               <Quote className="w-20 h-20 lg:w-32 lg:h-32" />
             </div>
 
-            <div className="relative">
+            <div className="relative min-h-72">
               {testimonials.map((testimonial, index) => (
                 <article
                   key={testimonial.author}
@@ -105,26 +78,23 @@ export default function Testimonials() {
                   }`}
                   aria-hidden={index !== activeIndex}
                 >
-                  <blockquote className="text-lg lg:text-xl text-white leading-relaxed mb-8">
+                  <span className="inline-flex mb-4 px-4 py-2 rounded-full bg-white/8 border border-white/10 text-accent text-sm font-semibold">
+                    {testimonial.role}
+                  </span>
+                  <blockquote className="text-lg lg:text-2xl text-white leading-relaxed mb-8">
                     &ldquo;{testimonial.quote}&rdquo;
                   </blockquote>
 
                   <footer className="flex items-center gap-4">
-                    <div className="relative w-14 h-14 rounded-full overflow-hidden">
-                      <Image
-                        src={testimonial.image}
-                        alt={`${testimonial.author}`}
-                        fill
-                        sizes="56px"
-                        className="object-cover"
-                      />
+                    <div className="w-14 h-14 rounded-full bg-linear-to-br from-primary to-accent text-white flex items-center justify-center font-bold border border-white/10">
+                      {getInitials(testimonial.author)}
                     </div>
                     <div>
                       <cite className="not-italic font-bold text-white block">
                         {testimonial.author}
                       </cite>
-                      <span className="text-sm text-white/80">
-                        {testimonial.role}, {testimonial.company}
+                      <span className="text-sm text-slate-300">
+                        {testimonial.company}
                       </span>
                     </div>
                   </footer>
@@ -133,32 +103,30 @@ export default function Testimonials() {
             </div>
           </div>
 
-          {/* Navigation */}
           <div className="flex items-center justify-center gap-4 mt-8">
             <button
               type="button"
               onClick={goToPrev}
-              className="p-3 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              aria-label="Previous testimonial"
+              className="p-3 rounded-full bg-white/8 border border-white/10 hover:bg-primary hover:text-white transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+              aria-label="Previous result"
             >
               <ChevronLeft className="w-5 h-5" aria-hidden="true" />
             </button>
 
-            {/* Dots */}
             <div className="flex gap-2" role="tablist">
               {testimonials.map((_, index) => (
                 <button
                   key={index}
                   type="button"
                   onClick={() => setActiveIndex(index)}
-                  className={`w-2.5 h-2.5 rounded-full transition-all ${
+                  className={`h-2.5 rounded-full transition-all ${
                     index === activeIndex
-                      ? "bg-primary w-8"
-                      : "bg-gray-300 hover:bg-gray-400"
+                      ? "bg-accent w-8"
+                      : "bg-white/20 hover:bg-white/30 w-2.5"
                   }`}
                   role="tab"
                   aria-selected={index === activeIndex}
-                  aria-label={`Go to testimonial ${index + 1}`}
+                  aria-label={`Go to result ${index + 1}`}
                 />
               ))}
             </div>
@@ -166,49 +134,39 @@ export default function Testimonials() {
             <button
               type="button"
               onClick={goToNext}
-              className="p-3 rounded-full bg-gray-100 hover:bg-primary hover:text-white transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2"
-              aria-label="Next testimonial"
+              className="p-3 rounded-full bg-white/8 border border-white/10 hover:bg-primary hover:text-white transition-colors focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-background"
+              aria-label="Next result"
             >
               <ChevronRight className="w-5 h-5" aria-hidden="true" />
             </button>
           </div>
         </div>
 
-        {/* Testimonial Grid (Desktop alternative view) */}
         <div className="hidden lg:grid grid-cols-4 gap-6 mt-12">
           {testimonials.map((testimonial, index) => (
             <button
               key={testimonial.author}
               type="button"
               onClick={() => setActiveIndex(index)}
-              className={`text-left p-4 rounded-xl transition-all ${
+              className={`text-left p-4 rounded-2xl transition-all border ${
                 index === activeIndex
-                  ? "bg-primary text-white shadow-lg scale-105"
-                  : "bg-gray-50 hover:bg-gray-100"
+                  ? "bg-primary/18 text-white border-primary/30 shadow-lg"
+                  : "bg-white/5 border-white/8 hover:bg-white/8"
               }`}
             >
-              <div className="flex items-center gap-3 mb-2">
-                <div className="relative w-10 h-10 rounded-full overflow-hidden">
-                  <Image
-                    src={testimonial.image}
-                    alt=""
-                    fill
-                    sizes="40px"
-                    className="object-cover"
-                  />
+              <div className="flex items-center gap-3 mb-3">
+                <div className="w-10 h-10 rounded-full bg-linear-to-br from-primary to-accent text-white flex items-center justify-center text-xs font-bold border border-white/10">
+                  {getInitials(testimonial.author)}
                 </div>
                 <div>
-                  <div
-                    className={`text-sm font-bold ${index === activeIndex ? "text-white" : "text-foreground"}`}
-                  >
+                  <div className="text-sm font-bold text-white">
                     {testimonial.author}
                   </div>
-                  <div
-                    className={`text-xs ${index === activeIndex ? "text-white/80" : "text-muted"}`}
-                  >
-                    {testimonial.company}
-                  </div>
+                  <div className="text-xs text-slate-300">{testimonial.role}</div>
                 </div>
+              </div>
+              <div className="text-xs text-accent font-semibold">
+                {testimonial.company}
               </div>
             </button>
           ))}

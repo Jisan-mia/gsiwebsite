@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import {
   Users,
   Headphones,
@@ -22,88 +21,65 @@ const iconMap = {
   Clock,
 };
 
+const handoffModel = [
+  {
+    task: "Simple queries",
+    owner: "AI",
+    outcome: "Instant answers and data collection",
+  },
+  {
+    task: "Medium tasks",
+    owner: "AI + Human",
+    outcome: "Faster execution with oversight",
+  },
+  {
+    task: "Complex issues",
+    owner: "Human",
+    outcome: "Judgment-led service and retention",
+  },
+];
+
 export default function Solutions() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
-    <section
-      ref={sectionRef}
-      className="py-20 lg:py-28 bg-primary relative overflow-hidden"
-      aria-labelledby="solutions-heading"
-    >
-      {/* Background decorations */}
-      <div className="absolute inset-0 opacity-10" aria-hidden="true">
-        <div className="absolute top-0 left-0 w-96 h-96 bg-white rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent rounded-full blur-3xl translate-x-1/2 translate-y-1/2" />
+    <section className="py-20 lg:py-28 relative overflow-hidden" aria-labelledby="solutions-heading">
+      <div className="absolute inset-0 opacity-60" aria-hidden="true">
+        <div className="absolute top-0 left-0 w-96 h-96 bg-primary/14 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" data-gsap="parallax" />
+        <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/14 rounded-full blur-3xl translate-x-1/2 translate-y-1/2" data-gsap="parallax" />
       </div>
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-accent font-semibold text-sm uppercase tracking-wider mb-4"
-            style={{ transitionDelay: "0.1s" }}
-          >
-            Our Solutions
+          <span className="animate-on-scroll inline-block text-accent font-semibold text-sm uppercase tracking-[0.2em] mb-4">
+            AI + Human Model
           </span>
           <h2
             id="solutions-heading"
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
-            style={{ transitionDelay: "0.2s" }}
+            className="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
-            How GSiTech <span className="text-accent">Helps</span>
+            We do not replace humans—<span className="gradient-text">we enhance them</span>
           </h2>
-          <p
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-white/80"
-            style={{ transitionDelay: "0.3s" }}
-          >
-            We provide comprehensive BPO solutions designed to solve your
-            biggest operational challenges while delivering exceptional value.
+          <p className="animate-on-scroll text-lg text-slate-300 leading-relaxed">
+            The model is designed so automation handles repetitive volume while
+            trained teams step in for context, judgment, and customer trust.
           </p>
         </div>
 
-        {/* Solutions Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8 mb-12">
-          {solutions.map((solution, index) => {
-            const IconComponent =
-              iconMap[solution.icon as keyof typeof iconMap];
+          {solutions.map((solution) => {
+            const IconComponent = iconMap[solution.icon as keyof typeof iconMap];
+
             return (
               <article
                 key={solution.title}
-                className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 group bg-white/10 backdrop-blur-sm rounded-2xl p-6 lg:p-8 border border-white/20 hover:bg-white/20 hover:border-white/30"
-                style={{ transitionDelay: `${0.1 * (index + 1)}s` }}
+                className="animate-on-scroll gsap-card surface-panel rounded-3xl p-6 lg:p-8 card-hover"
               >
-                {/* Icon */}
-                <div className="w-14 h-14 bg-white/20 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 group-hover:bg-accent/20 transition-all">
-                  <IconComponent
-                    className="w-7 h-7 text-white group-hover:text-accent transition-colors"
-                    aria-hidden="true"
-                  />
+                <div className="w-14 h-14 bg-white/8 rounded-2xl flex items-center justify-center mb-5 text-accent">
+                  <IconComponent className="w-7 h-7" aria-hidden="true" />
                 </div>
-
-                {/* Content */}
                 <h3 className="text-xl font-bold text-white mb-3">
                   {solution.title}
                 </h3>
-                <p className="text-white/70 leading-relaxed">
+                <p className="text-slate-300 leading-relaxed">
                   {solution.description}
                 </p>
               </article>
@@ -111,16 +87,34 @@ export default function Solutions() {
           })}
         </div>
 
-        {/* CTA */}
-        <div
-          className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-center"
-          style={{ transitionDelay: "0.8s" }}
-        >
+        <div className="animate-on-scroll surface-panel rounded-[2rem] overflow-hidden mb-12">
+          <div className="grid md:grid-cols-3 bg-white/5 text-sm font-semibold text-slate-200">
+            <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-white/10">Task Type</div>
+            <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-white/10">Handled By</div>
+            <div className="px-6 py-4">Outcome</div>
+          </div>
+          {handoffModel.map((row) => (
+            <div
+              key={row.task}
+              className="grid md:grid-cols-3 border-t border-white/10 text-sm text-slate-300"
+            >
+              <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-white/10 font-medium text-white">
+                {row.task}
+              </div>
+              <div className="px-6 py-4 border-b md:border-b-0 md:border-r border-white/10 text-accent font-semibold">
+                {row.owner}
+              </div>
+              <div className="px-6 py-4">{row.outcome}</div>
+            </div>
+          ))}
+        </div>
+
+        <div className="animate-on-scroll text-center">
           <Link
             href="#contact"
-            className="inline-flex items-center gap-2 px-8 py-4 bg-white text-primary font-semibold rounded-full text-lg transition-all hover:bg-accent hover:text-white hover:shadow-xl hover:scale-105 focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-primary"
+            className="inline-flex items-center gap-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-white font-semibold rounded-full text-lg transition-all hover:shadow-xl hover:shadow-primary/25"
           >
-            Let&apos;s Discuss Your Needs
+            Book a Free Consultation
             <ArrowRight className="w-5 h-5" aria-hidden="true" />
           </Link>
         </div>

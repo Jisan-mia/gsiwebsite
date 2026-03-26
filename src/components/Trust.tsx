@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import {
   Award,
   BarChart3,
@@ -9,7 +8,7 @@ import {
   Building2,
   CheckCircle,
 } from "lucide-react";
-import { trustSignals, metrics } from "@/lib/constants";
+import { trustSignals, metrics, siteConfig } from "@/lib/constants";
 
 const iconMap = {
   Award,
@@ -21,99 +20,55 @@ const iconMap = {
 };
 
 export default function Trust() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
       id="why-us"
-      className="py-20 lg:py-24 bg-gray-50/50"
+      className="py-20 lg:py-24"
       aria-labelledby="trust-heading"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
-          {/* Left Side: Header & Context */}
-          <div className="lg:col-span-4 lg:sticky lg:top-32 space-y-12 text-center lg:text-left">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 items-start">
+          <div className="lg:col-span-4 lg:sticky lg:top-28 space-y-8 text-center lg:text-left">
             <div>
-              <span
-                className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-accent font-medium text-sm uppercase tracking-widest mb-4"
-                style={{ transitionDelay: "0.1s" }}
-              >
+              <span className="animate-on-scroll inline-block text-accent font-medium text-sm uppercase tracking-[0.2em] mb-4">
                 Why Choose Us
               </span>
               <h2
                 id="trust-heading"
-                className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl font-bold text-primary mb-6"
-                style={{ transitionDelay: "0.2s" }}
+                className="animate-on-scroll text-3xl sm:text-4xl font-bold text-white mb-6"
               >
-                Reliable partnership
+                AI-first operations with a <span className="gradient-text">global-ready delivery model</span>
               </h2>
-              <p
-                className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted/80 leading-relaxed"
-                style={{ transitionDelay: "0.3s" }}
-              >
-                We&apos;ve built our reputation on delivering consistent
-                quality, transparent operations, and measurable results for our
-                clients.
+              <p className="animate-on-scroll text-lg text-slate-300 leading-relaxed">
+                We combine modern automation strategy, responsive human support,
+                and Bangladesh-based cost efficiency to help companies scale more
+                intelligently.
               </p>
             </div>
 
-            {/* Regions */}
-            <div
-              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 bg-white rounded-3xl p-6 border border-gray-100"
-              style={{ transitionDelay: "0.35s" }}
-            >
-              <h3 className="text-sm font-medium text-muted uppercase tracking-wide mb-4">
+            <div className="animate-on-scroll surface-panel rounded-3xl p-6">
+              <h3 className="text-sm font-medium text-slate-300 uppercase tracking-wide mb-4">
                 Serving clients across
               </h3>
               <div className="flex flex-wrap gap-3 justify-center lg:justify-start">
-                {[
-                  { name: "United States", flag: "🇺🇸" },
-                  { name: "United Kingdom", flag: "🇬🇧" },
-                  { name: "Europe", flag: "🇪🇺" },
-                  { name: "Canada", flag: "🇨🇦" },
-                  { name: "Australia", flag: "🇦🇺" },
-                ].map((region) => (
+                {siteConfig.regions.map((region) => (
                   <span
-                    key={region.name}
-                    className="px-4 py-2 bg-gray-50 text-primary/80 font-medium rounded-full text-sm hover:bg-primary/5 transition-colors"
+                    key={region}
+                    className="px-4 py-2 bg-white/6 text-slate-100 font-medium rounded-full text-sm border border-white/8"
                   >
-                    <span className="mr-2" aria-hidden="true">
-                      {region.flag}
-                    </span>
-                    {region.name}
+                    {region}
                   </span>
                 ))}
               </div>
             </div>
 
-            {/* Compact Metrics Stack */}
-            <div className="space-y-6">
-              {metrics.map((metric, index) => (
+            <div className="space-y-4">
+              {metrics.map((metric) => (
                 <div
                   key={metric.label}
-                  className="animate-on-scroll opacity-0 translate-x-4 transition-all duration-500 bg-primary rounded-2xl p-6 border border-primary/10 shadow-sm flex items-center justify-between"
-                  style={{ transitionDelay: `${0.4 + index * 0.1}s` }}
+                  className="animate-on-scroll surface-panel rounded-2xl p-6 flex items-center justify-between"
                 >
-                  <span className="text-sm font-medium text-white/80 uppercase tracking-wide">
+                  <span className="text-sm font-medium text-slate-300 uppercase tracking-wide">
                     {metric.label}
                   </span>
                   <span className="text-3xl font-bold text-white">
@@ -124,31 +79,29 @@ export default function Trust() {
             </div>
           </div>
 
-          {/* Right Side: Trust Signals Grid */}
           <div className="lg:col-span-8">
             <div className="grid sm:grid-cols-2 gap-6">
-              {trustSignals.map((signal, index) => {
-                const IconComponent =
-                  iconMap[signal.icon as keyof typeof iconMap];
+              {trustSignals.map((signal) => {
+                const IconComponent = iconMap[signal.icon as keyof typeof iconMap];
+
                 return (
                   <div
                     key={signal.title}
-                  className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 group bg-white rounded-3xl p-8 border border-gray-100 hover:shadow-lg hover:border-transparent"
-                  style={{ transitionDelay: `${0.2 * (index + 1)}s` }}
-                >
-                  <div className="w-16 h-16 bg-gray-50 rounded-2xl flex items-center justify-center mb-6 text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300">
-                    <IconComponent className="w-8 h-8" aria-hidden="true" />
+                    className="animate-on-scroll gsap-card surface-panel rounded-3xl p-8 card-hover"
+                  >
+                    <div className="w-16 h-16 bg-white/8 rounded-2xl flex items-center justify-center mb-6 text-accent">
+                      <IconComponent className="w-8 h-8" aria-hidden="true" />
+                    </div>
+                    <h3 className="text-lg font-bold text-white mb-3">
+                      {signal.title}
+                    </h3>
+                    <p className="text-slate-300 leading-relaxed text-sm">
+                      {signal.description}
+                    </p>
                   </div>
-                  <h3 className="text-lg font-bold text-foreground mb-3">
-                    {signal.title}
-                  </h3>
-                  <p className="text-muted leading-relaxed text-sm">
-                    {signal.description}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+                );
+              })}
+            </div>
           </div>
         </div>
       </div>

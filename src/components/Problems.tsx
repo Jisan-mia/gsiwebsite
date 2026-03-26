@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import {
   DollarSign,
   TrendingDown,
@@ -21,105 +20,55 @@ const iconMap = {
 };
 
 export default function Problems() {
-  const sectionRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: "0px 0px -50px 0px" },
-    );
-
-    const elements = sectionRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section
-      ref={sectionRef}
-      className="py-20 lg:py-28 bg-linear-to-b from-white to-gray-50"
+      className="py-20 lg:py-28"
       aria-labelledby="problems-heading"
     >
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
-          <span
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 inline-block text-primary font-semibold text-sm uppercase tracking-wider mb-4"
-            style={{ transitionDelay: "0.1s" }}
-          >
-            Challenges
+          <span className="animate-on-scroll inline-block text-accent font-semibold text-sm uppercase tracking-[0.2em] mb-4">
+            Clear Positioning
           </span>
           <h2
             id="problems-heading"
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6"
-            style={{ transitionDelay: "0.2s" }}
+            className="animate-on-scroll text-3xl sm:text-4xl lg:text-5xl font-bold text-white mb-6"
           >
-            Are you facing these challenges?
+            Modern outsourcing built for <span className="gradient-text">global growth</span>
           </h2>
-          <p
-            className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 text-lg text-muted"
-            style={{ transitionDelay: "0.3s" }}
-          >
-            We solve the complexity of scaling support teams so you don't have
-            to.
+          <p className="animate-on-scroll text-lg text-slate-300 leading-relaxed">
+            Unlike traditional BPOs, we combine intelligent automation and
+            human expertise to create faster, leaner, and more scalable support
+            operations.
           </p>
         </div>
 
-        {/* Pain Points Grid */}
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {painPoints.map((point, index) => {
+          {painPoints.map((point) => {
             const IconComponent = iconMap[point.icon as keyof typeof iconMap];
+
             return (
               <article
                 key={point.title}
-                className="animate-on-scroll opacity-0 translate-y-6 transition-all duration-500 group relative bg-white rounded-2xl p-6 lg:p-8 shadow-sm hover:shadow-xl border border-gray-100 hover:border-error/20"
-                style={{ transitionDelay: `${0.1 * (index + 1)}s` }}
+                className="animate-on-scroll gsap-card surface-panel rounded-3xl p-6 lg:p-8 card-hover"
               >
-                {/* Red accent on hover */}
-                <div
-                  className="absolute inset-0 bg-linear-to-br from-error/5 to-transparent rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity"
-                  aria-hidden="true"
-                />
-
-                <div className="relative">
-                  {/* Icon */}
-                  <div className="w-14 h-14 bg-error/10 rounded-xl flex items-center justify-center mb-5 group-hover:scale-110 transition-transform">
-                    <IconComponent
-                      className="w-7 h-7 text-error"
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  {/* Content */}
-                  <h3 className="text-xl font-bold text-foreground mb-3">
-                    {point.title}
-                  </h3>
-                  <p className="text-muted leading-relaxed">
-                    {point.description}
-                  </p>
+                <div className="w-14 h-14 bg-primary/14 rounded-2xl flex items-center justify-center mb-5 text-accent">
+                  <IconComponent className="w-7 h-7" aria-hidden="true" />
                 </div>
+                <h3 className="text-xl font-bold text-white mb-3">
+                  {point.title}
+                </h3>
+                <p className="text-slate-300 leading-relaxed">
+                  {point.description}
+                </p>
               </article>
             );
           })}
         </div>
 
-        {/* Transition to solution */}
-        <div
-          className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-500 mt-16 text-center"
-          style={{ transitionDelay: "0.8s" }}
-        >
-          <p className="text-xl text-foreground font-medium">
-            You don&apos;t have to solve these challenges alone.{" "}
-            <span className="text-primary font-bold">
-              GSiTech is here to help.
-            </span>
+        <div className="animate-on-scroll mt-16 text-center">
+          <p className="text-xl text-slate-100 font-medium">
+            This is not a typical call center. <span className="text-accent font-bold">It is a smart automation company.</span>
           </p>
         </div>
       </div>

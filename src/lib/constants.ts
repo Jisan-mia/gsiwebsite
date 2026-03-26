@@ -2,22 +2,29 @@ export const siteConfig = {
   name: "GSiTech Solutions & Consultancy",
   shortName: "GSiTech",
   description:
-    "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
+    "AI-powered customer support and business process automation for global businesses, combining automation workflows with skilled human teams.",
+  tagline: "AI-Powered Customer Support & Business Process Automation",
   url: "https://gsitechbd.com",
   ogImage: "/og-image.svg",
   email: "gsitechsolution@gmail.com",
   phone: "+8801865640940",
   whatsappLink: "https://wa.me/qr/UTNLZDT3IX26C1",
   address: "Plot no-7, Road Number 1, Dhaka 1207, Bangladesh",
-  regions: ["USA", "UK", "Europe", "Canada", "Australia"],
+  regions: [
+    "United States",
+    "United Kingdom",
+    "Europe",
+    "Canada",
+    "Australia",
+  ],
   industries: [
     "E-commerce",
-    "Healthcare",
-    "FinTech",
     "SaaS",
-    "Travel & Hospitality",
-    "Telecommunications",
-    "Retail",
+    "FinTech",
+    "Healthcare",
+    "EdTech",
+    "Logistics",
+    "Professional Services",
   ],
   socials: {
     linkedin: "https://www.linkedin.com/in/mahmudul-hassan-joy-4891a83a5/",
@@ -28,65 +35,60 @@ export const siteConfig = {
 
 export const navigation = [
   { name: "Services", href: "#services" },
-  { name: "Why Us", href: "#why-us" },
-  { name: "Process", href: "#process" },
-  { name: "Testimonials", href: "#testimonials" },
+  { name: "How It Works", href: "#process" },
+  { name: "Results", href: "#results" },
   { name: "FAQ", href: "#faq" },
   { name: "About", href: "#about" },
+  { name: "Contact", href: "#contact" },
 ];
 
 export const services = [
   {
-    id: "customer-support",
-    title: "Customer Support",
+    id: "ai-support",
+    title: "AI Customer Support Automation",
     icon: "PhoneIncoming",
+    result: "Reduce support workload by up to 70%.",
     features: [
-      "Call centers (Inbound & outbound)",
-      "Email, chat, and Omnichannel support",
-      "Technical support & help desks",
+      "Email automation",
+      "Chatbot for website and social media",
+      "WhatsApp automation",
+      "AI-assisted live agents",
     ],
   },
   {
-    id: "back-office",
-    title: "Back-Office Operations",
-    icon: "Settings",
-    features: ["Data Entry", "Data processing", "Invoice processing"],
-  },
-  {
-    id: "sales-marketing",
-    title: "Sales & Marketing Support",
+    id: "whatsapp-automation",
+    title: "WhatsApp Sales & Support Automation",
     icon: "PhoneOutgoing",
+    result: "Turn conversations into conversions.",
     features: [
-      "Telemarketing & lead generation",
-      "Appointment setting",
-      "Market research & surveys",
+      "Auto replies to customer inquiries",
+      "Lead capture and qualification",
+      "Order collection automation",
+      "Human takeover for closing",
     ],
   },
   {
-    id: "it-digital",
-    title: "IT & Digital Services",
-    icon: "Globe",
-    features: ["Webpage development & maintenance", "Social media Marketing"],
-  },
-  {
-    id: "sme-package",
-    title: "SME All-In-One Package",
+    id: "hybrid-support",
+    title: "AI + Human Hybrid Support Team",
     icon: "Shuffle",
+    result: "Balance automation with human empathy.",
     features: [
-      "Customer Handling & Support",
-      "Back-office operations",
-      "Webpage and social Media Marketing Support",
-      "Telesales & Lead Generation",
-      "Business Development & Growth Support",
+      "Trained support agents",
+      "AI-assisted responses",
+      "24/7 availability",
+      "Escalation handling for complex issues",
     ],
   },
   {
-    id: "training",
-    title: "Training Programs",
-    icon: "GraduationCap",
+    id: "business-process-automation",
+    title: "Business Process Automation",
+    icon: "Settings",
+    result: "Eliminate repetitive work across teams.",
     features: [
-      "Call center & BPO training",
-      "Freelance and Outsourcing training",
+      "CRM automation",
+      "Data processing",
+      "Workflow automation",
+      "Reporting and analytics",
     ],
   },
 ];
@@ -94,253 +96,263 @@ export const services = [
 export const painPoints = [
   {
     icon: "DollarSign",
-    title: "High Operational Costs",
+    title: "Artificial Intelligence",
     description:
-      "In-house call center operations drain your budget with salaries, infrastructure, and overhead.",
+      "We deploy AI systems that answer routine questions, capture structured data, and keep service quality consistent across channels.",
   },
   {
     icon: "TrendingDown",
-    title: "Inconsistent Service Quality",
+    title: "Automation Workflows",
     description:
-      "Current outsourcing partners deliver unpredictable quality that damages your brand reputation.",
+      "We design workflows that connect customer conversations to CRM actions, routing rules, reporting, and follow-up tasks.",
   },
   {
     icon: "Users",
-    title: "Scaling Challenges",
+    title: "Skilled Human Agents",
     description:
-      "Struggling to quickly scale your team up or down during peak seasons and growth phases.",
+      "When nuance matters, trained human specialists step in to resolve escalations, protect customer relationships, and close revenue opportunities.",
   },
   {
     icon: "Frown",
-    title: "Poor Customer Experience",
+    title: "Better Customer Experience",
     description:
-      "Long wait times, untrained agents, and communication gaps frustrate your customers.",
+      "Faster response, fewer handoff delays, and a more consistent tone of voice help your brand feel modern and dependable.",
   },
   {
     icon: "ShieldAlert",
-    title: "Risk & Compliance Concerns",
+    title: "Global-Ready Delivery",
     description:
-      "Worried about data security, regulatory compliance, and operational risks.",
+      "Based in Bangladesh, we help companies serve international markets with scalable systems and an efficient operating model.",
   },
   {
     icon: "HelpCircle",
-    title: "Limited Expertise",
+    title: "Clear Performance Visibility",
     description:
-      "Lack of specialized knowledge in building and managing effective BPO operations.",
+      "You get reporting, optimization, and continuous improvement so automation keeps producing better results over time.",
   },
 ];
 
 export const solutions = [
   {
     icon: "Users",
-    title: "Skilled English-Speaking Teams",
+    title: "Instant first response",
     description:
-      "Professional agents with excellent communication skills and cultural understanding.",
+      "AI handles simple support and sales inquiries the moment a customer reaches out by email, chat, WhatsApp, or social media.",
   },
   {
     icon: "Headphones",
-    title: "Inbound, Outbound & Blended",
+    title: "Hybrid support coverage",
     description:
-      "Complete call center capabilities to handle any customer interaction.",
+      "Agents work with AI-assisted prompts, summaries, and recommended actions so teams move faster without losing context.",
   },
   {
     icon: "Shield",
-    title: "Managed Operations",
+    title: "Human escalation where it matters",
     description:
-      "Full-service management including training, QA, reporting, and optimization.",
+      "Complex, emotional, or high-value conversations are routed to trained people who can solve issues and protect the customer relationship.",
   },
   {
     icon: "Lock",
-    title: "Secure Systems & Processes",
+    title: "Structured operations",
     description:
-      "Enterprise-grade security with structured processes and compliance protocols.",
+      "Routing logic, customer data capture, and SOP-driven workflows create consistent execution across every shift and every channel.",
   },
   {
     icon: "Wallet",
-    title: "Offshore Cost Advantage",
+    title: "Lower operational cost",
     description:
-      "Save 40-60% on operational costs without compromising on quality.",
+      "The combination of automation and Bangladesh-based delivery lowers spend without sacrificing quality, speed, or flexibility.",
   },
   {
     icon: "Clock",
-    title: "24/7 Operations",
+    title: "Continuous optimization",
     description:
-      "Round-the-clock support across all time zones for your global customers.",
+      "We track response times, resolution quality, and workflow performance to improve the system as volume and complexity grow.",
   },
 ];
 
 export const trustSignals = [
   {
     icon: "Award",
-    title: "Multi-Industry Experience",
+    title: "AI-first approach",
     description:
-      "Proven track record across e-commerce, healthcare, finance, tech, and more.",
+      "We are not a traditional outsourcing vendor. Automation strategy sits at the center of every engagement.",
   },
   {
     icon: "BarChart3",
-    title: "Transparent Reporting",
+    title: "Custom-built workflows",
     description:
-      "Real-time dashboards and detailed analytics to track performance.",
+      "Every process is tailored to your channel mix, customer journey, CRM, and reporting requirements.",
   },
   {
     icon: "Scaling",
-    title: "Scalable Teams",
-    description: "Quickly scale from 5 to 50+ agents based on your needs.",
+    title: "Scalable systems",
+    description:
+      "Launch with a focused use case, then expand into more support queues, markets, and back-office workflows over time.",
   },
   {
     icon: "Handshake",
-    title: "Long-Term Partnerships",
+    title: "Human-centered delivery",
     description:
-      "We invest in understanding your business for lasting success.",
+      "We use AI to make people more effective, not to remove the human touch from important customer moments.",
   },
   {
     icon: "Building2",
-    title: "Professional Infrastructure",
+    title: "Bangladesh cost advantage",
     description:
-      "Modern facilities with redundant systems and disaster recovery.",
+      "Operate with a globally competitive cost structure while maintaining professional, responsive service.",
   },
   {
     icon: "CheckCircle",
-    title: "Quality Guaranteed",
-    description: "Rigorous QA processes with satisfaction guarantees.",
+    title: "Measured business outcomes",
+    description:
+      "We focus on faster response, lower cost, and stronger customer experience rather than vanity metrics.",
   },
 ];
 
 export const metrics = [
-  { value: "98%", label: "Client Satisfaction Rate" },
-  { value: "50+", label: "Trained Agents" },
-  { value: "40-60%", label: "Cost Savings" },
-  { value: "24/7", label: "Support Coverage" },
+  { value: "50–70%", label: "Reduction in support costs" },
+  { value: "24/7", label: "Customer response coverage" },
+  { value: "2–3x", label: "Faster response times" },
+  { value: "Higher CSAT", label: "Improved customer satisfaction" },
 ];
 
 export const testimonials = [
   {
     quote:
-      "GSiTech transformed our customer support operations. Response times dropped by 60%, and customer satisfaction scores are at an all-time high. Their team feels like an extension of our own.",
-    author: "Sarah Mitchell",
-    role: "VP of Operations",
-    company: "TechFlow Inc.",
-    image:
-      "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=100&h=100&fit=crop&crop=face",
+      "Before: 10 support agents and slow response times. After: 3 agents plus AI with 24/7 instant replies and cleaner escalation handling.",
+    author: "E-commerce Client",
+    role: "Customer Support Automation",
+    company: "60% cost reduction",
   },
   {
     quote:
-      "We switched to GSiTech after a bad experience with another provider. The difference is night and day. Professional agents, transparent reporting, and genuine partnership approach.",
-    author: "Michael Chen",
-    role: "CEO",
-    company: "GlobalRetail Co.",
-    image:
-      "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=100&h=100&fit=crop&crop=face",
+      "WhatsApp inquiries moved from manual follow-up to automated lead capture, qualification, and human closing for high-intent buyers.",
+    author: "Retail Brand",
+    role: "WhatsApp Sales Automation",
+    company: "3x faster lead response",
   },
   {
     quote:
-      "Scaling from 5 to 10 agents in just a few weeks during our peak season was seamless. GSiTech handled everything professionally, and our customers never noticed the change.",
-    author: "Emily Rodriguez",
-    role: "Director of Customer Experience",
-    company: "ShopSmart",
-    image:
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=100&h=100&fit=crop&crop=face",
+      "Back-office requests, reporting, and ticket routing were automated into one operating flow, freeing the team to focus on exceptions and growth.",
+    author: "SaaS Operations Team",
+    role: "Workflow Automation",
+    company: "24/7 process coverage",
   },
   {
     quote:
-      "The phishing awareness training GSiTech provided reduced our security incidents by 80%. Their training programs are comprehensive and engaging for our entire team.",
-    author: "David Thompson",
-    role: "CISO",
-    company: "SecureFinance Ltd.",
-    image:
-      "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=100&h=100&fit=crop&crop=face",
+      "The hybrid model gave us instant AI handling for routine queries and confident human takeover for complex customer retention issues.",
+    author: "Subscription Business",
+    role: "AI + Human Support Model",
+    company: "Higher retention outcomes",
   },
 ];
 
 export const processSteps = [
   {
     step: 1,
-    title: "Share Your Requirements",
+    title: "Customer contacts your business",
     description:
-      "Tell us about your business needs, volume expectations, and goals. We listen carefully to understand your unique challenges.",
+      "Email, WhatsApp, website chat, or social media conversations enter one connected workflow.",
   },
   {
     step: 2,
-    title: "Get Customized Solution",
+    title: "AI handles instantly",
     description:
-      "Receive a tailored proposal with team structure, technology stack, pricing, and implementation timeline.",
+      "The system understands the request, responds automatically, and collects the information needed to move the case forward.",
   },
   {
     step: 3,
-    title: "Launch Operations",
+    title: "Human support if needed",
     description:
-      "We recruit, train, and onboard your dedicated team. Go live with full support and monitoring.",
+      "Complex cases are routed to trained agents who take over with full context and faster decision-making.",
   },
   {
     step: 4,
-    title: "Scale & Optimize",
+    title: "Continuous optimization",
     description:
-      "Continuously improve performance with data-driven insights. Scale up or down as your business evolves.",
+      "Performance is tracked, workflows are improved, and the automation layer becomes more effective over time.",
   },
 ];
 
 export const faqs = [
   {
-    question: "How quickly can you launch a team for us?",
+    question: "How quickly can you launch an AI-driven support workflow?",
     answer:
-      "Depending on team size and complexity, we can have your dedicated team operational within 2-4 weeks. For urgent requirements, we can fast-track onboarding with pre-trained agents and a focused ramp-up plan.",
+      "For focused use cases, we can move quickly from discovery to launch. The exact timeline depends on channels, integrations, and escalation requirements, but we keep implementation practical and business-focused.",
   },
   {
-    question: "Which time zones do you support?",
+    question: "Which channels can you automate?",
     answer:
-      "We provide 24/7 coverage across all major time zones. Our staffing model supports customers in the USA, UK, Europe, Canada, Australia, and other global markets with consistent service quality.",
+      "We support email, website chat, WhatsApp, social media conversations, and connected back-office workflows so customers and teams work from one operating model.",
   },
   {
-    question: "How do you ensure quality and security?",
+    question: "Do you replace human agents entirely?",
     answer:
-      "We use structured QA programs with monitoring, coaching, and performance reviews. Our security approach includes access controls, secure tooling, and data-handling policies aligned to your compliance requirements.",
+      "No. Our model is designed to enhance human teams. AI handles simple and repetitive tasks, while trained agents manage complex conversations, escalations, and relationship-critical moments.",
   },
   {
-    question: "Is this suitable for small businesses?",
+    question: "Can you integrate with our CRM or existing tools?",
     answer:
-      "Absolutely. We work with businesses of all sizes, from startups needing 5 agents to teams requiring 50+. Our flexible pricing and scaling options make professional BPO accessible without heavy overhead.",
+      "Yes. We build workflows around your current systems wherever possible, including CRM processes, ticket routing, reporting, and internal operating procedures.",
   },
   {
-    question: "What industries do you serve?",
+    question: "What business results should we expect?",
     answer:
-      "We support e-commerce, healthcare, financial services, technology, travel, telecommunications, and more. Teams receive industry-specific training so your customers get informed, on-brand support.",
+      "Clients typically target lower support cost, faster response time, always-on coverage, and a more consistent customer experience. We align the workflow to the metrics that matter most to your operation.",
   },
   {
-    question: "How do you handle training for our specific processes?",
+    question: "Is this suitable for growing companies as well as larger teams?",
     answer:
-      "We build custom training based on your products, workflows, and brand voice. Our training team partners with you to validate scripts, knowledge bases, and QA benchmarks before launch.",
-  },
-  {
-    question: "What technology platforms do you support?",
-    answer:
-      "We integrate with popular CRM and helpdesk platforms like Salesforce, Zendesk, Freshdesk, and HubSpot. We can also adapt to your existing tools and custom workflows.",
-  },
-  {
-    question: "What are your pricing models?",
-    answer:
-      "We offer flexible pricing including per-agent, per-hour, per-transaction, and hybrid models. During consultation, we recommend the most cost-effective structure for your goals and volume.",
+      "Yes. The model works for companies that want to automate one support queue today and scale into broader customer support, sales, and back-office operations over time.",
   },
 ];
 
 export const aboutUs = {
+  eyebrow: "About Us",
+  headline: "Building the Future of Outsourcing with AI",
+  intro:
+    "At GSiTech Solutions & Consultancy, we are transforming traditional outsourcing into intelligent, AI-driven operations for global businesses.",
   sections: [
     {
       id: "who-we-are",
-      title: "Who We Are",
+      title: "What We Build",
       content:
-        "GSiTech is the technology and outsourcing division of GSi, delivering AI-powered customer support, back-office operations, telesales, marketing, IT, and digital services. Our specialized teams serve e-commerce, healthcare, fintech, SaaS, real estate, travel, telecom, and professional services, helping businesses scale efficiently while elevating customer experience.",
+        "Our work combines artificial intelligence, automation systems, and data-driven workflows to redesign customer support, sales support, and back-office execution.",
       highlight:
-        "We combine technology, human expertise, and operational excellence to provide solutions that are reliable, flexible, and globally competitive.",
+        "We help businesses operate smarter, faster, and more efficiently with systems that blend automation speed and human expertise.",
     },
     {
       id: "vision-impact",
-      title: "Our Vision & Impact",
+      title: "Our Vision",
       content:
-        "We envision a Bangladesh where skilled, educated youth have meaningful job opportunities while global and local businesses benefit from cost-effective, high-quality outsourcing solutions.",
+        "To become a leading AI-powered outsourcing partner for global businesses that want modern, scalable, and measurable operations.",
       highlight:
-        "Founded by Mohammad M.H. Joy, who returned to Bangladesh after studying and working in London, GSiTech bridges skill development, social impact, and business growth. Our mission is to empower young professionals and equip them with the tools to thrive in a global workforce.",
-    }
+        "Our mission is to automate repetitive processes, enhance customer experience, reduce operating cost, and combine AI with human intelligence in practical ways.",
+    },
   ],
+  missionPoints: [
+    "Automate repetitive processes",
+    "Enhance customer experience",
+    "Reduce operational cost for clients",
+    "Combine AI with human intelligence",
+  ],
+  founder: {
+    name: "Mohammad M.H. Joy",
+    role: "Founder & CEO",
+    summary:
+      "GSiTech was created to help businesses move beyond conventional outsourcing and adopt AI-enabled operations from Bangladesh for global markets.",
+    experience: [
+      "Student Advisor at The Open University, UK",
+      "Claims Handler at Home Repair Network Limited, UK",
+      "Research Assistant at Carnegie Endowment for International Peace, USA",
+    ],
+    education: [
+      "MA in Asia & International Studies, University of Nottingham, UK",
+      "BSS in Global Studies & Governance, Independent University, Bangladesh",
+      "Associate of Science, Troy University, Alabama, USA",
+    ],
+  },
   image: {
     url: "/joy.jpeg",
     alt: "Mohammad M.H. Joy - Founder of GSiTech",

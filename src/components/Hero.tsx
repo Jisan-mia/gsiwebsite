@@ -1,194 +1,242 @@
 "use client";
 
-import { useEffect, useRef } from "react";
 import Link from "next/link";
-import Image from "next/image";
-import {
-  ArrowRight,
-  Play,
-  CheckCircle,
-  Trophy,
-  Users,
-  Globe,
-} from "lucide-react";
+import { ArrowRight, Play, Trophy, Users, Globe, Sparkles } from "lucide-react";
 
 export default function Hero() {
-  const heroRef = useRef<HTMLElement>(null);
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("animate-in");
-          }
-        });
-      },
-      { threshold: 0.1 },
-    );
-
-    const elements = heroRef.current?.querySelectorAll(".animate-on-scroll");
-    elements?.forEach((el) => observer.observe(el));
-
-    return () => observer.disconnect();
-  }, []);
+  const heroMetrics = [
+    { value: "50–70%", label: "Lower support costs" },
+    { value: "24/7", label: "Instant customer response" },
+    { value: "2–3x", label: "Faster resolution speed" },
+  ];
 
   return (
     <section
-      ref={heroRef}
-      className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden bg-white"
+      className="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden"
       aria-labelledby="hero-heading"
     >
-      {/* Background Decorators */}
-      <div className="absolute top-0 right-0 -translate-y-1/2 translate-x-1/2 w-125 h-125 bg-primary/5 rounded-full blur-3xl -z-10" />
-      <div className="absolute bottom-0 left-0 translate-y-1/2 -translate-x-1/2 w-125 h-125 bg-secondary/5 rounded-full blur-3xl -z-10" />
-
-      {/* Grid Pattern */}
-      <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-size-[24px_24px] pointer-events-none" />
+      <div
+        className="orb absolute top-0 right-0 -translate-y-1/3 translate-x-1/4 w-125 h-125 bg-primary/18 rounded-full blur-3xl"
+        data-gsap="float"
+      />
+      <div
+        className="orb absolute bottom-0 left-0 translate-y-1/3 -translate-x-1/4 w-125 h-125 bg-accent/16 rounded-full blur-3xl"
+        data-gsap="float"
+      />
+      <div className="absolute inset-0 site-grid opacity-25 pointer-events-none" />
 
       <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8 relative">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
-          {/* Content */}
+        <div className="grid lg:grid-cols-2 gap-14 lg:gap-20 items-center">
           <div className="text-center lg:text-left space-y-8">
             <div
-              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 inline-flex items-center gap-2 px-4 py-2 bg-primary/5 border border-primary/10 rounded-full text-primary text-sm font-semibold tracking-wide"
-              style={{ transitionDelay: "0.1s" }}
+              className="animate-on-scroll inline-flex items-center gap-2 px-4 py-2 glass rounded-full text-accent text-sm font-semibold tracking-wide"
+              data-gsap="pulse"
             >
               <Globe className="w-4 h-4" aria-hidden="true" />
-              <span>One-Stop Global BPO & Outsourcing Solutions</span>
+              <span>Bangladesh-based AI-first outsourcing partner</span>
             </div>
 
-            <h1
-              id="hero-heading"
-              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 text-4xl sm:text-5xl lg:text-5xl/tight font-bold text-gray-900 tracking-tight"
-              style={{ transitionDelay: "0.2s" }}
-            >
-              BPO & Call Center Outsourcing that{" "}
-              <br className="hidden lg:block" />
-              drives{" "}
-              <span className="text-transparent bg-clip-text bg-linear-to-r from-primary to-primary-light">
-                Business Growth.
-              </span>
-            </h1>
+            <div className="space-y-5">
+              <h1
+                id="hero-heading"
+                className="animate-on-scroll text-4xl sm:text-5xl lg:text-6xl/tight font-bold text-white tracking-tight"
+              >
+                AI-Powered Customer Support &amp; Business Process Automation
+              </h1>
+              <p className="animate-on-scroll text-lg sm:text-xl text-slate-300 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                We help companies reduce operational costs and scale faster using
+                a powerful combination of AI automation and human expertise.
+              </p>
+            </div>
 
-            <p
-              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 text-lg sm:text-xl text-gray-600 leading-relaxed max-w-2xl mx-auto lg:mx-0"
-              style={{ transitionDelay: "0.3s" }}
-            >
-              Al-powered BPO services for SMEs — customer support,
-              back-office, sales, marketing, and digital services, with
-              specialized teams across e-commerce, healthcare, fintech, SaaS,
-              real estate, travel, and telecom.
-            </p>
-
-            <div
-              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2"
-              style={{ transitionDelay: "0.4s" }}
-            >
+            <div className="animate-on-scroll flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-2">
               <Link
                 href="#contact"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-primary text-white font-semibold rounded-full text-lg transition-all hover:bg-primary-light hover:shadow-lg hover:shadow-primary/20 hover:-translate-y-0.5"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-linear-to-r from-primary to-accent text-white font-semibold rounded-full text-lg transition-all hover:shadow-xl hover:shadow-primary/20"
               >
                 Get Started
                 <ArrowRight className="w-5 h-5" aria-hidden="true" />
               </Link>
               <Link
-                href="#services"
-                className="inline-flex items-center justify-center gap-2 px-8 py-4 bg-white text-gray-700 font-semibold rounded-full text-lg border border-gray-200 transition-all hover:bg-gray-50 hover:border-gray-300 hover:text-primary"
+                href="#contact"
+                className="inline-flex items-center justify-center gap-2 px-8 py-4 glass text-white font-semibold rounded-full text-lg transition-all hover:border-accent/30"
               >
                 <Play className="w-5 h-5" aria-hidden="true" />
-                Our Services
+                Book a Demo
               </Link>
             </div>
 
-            <div
-              className="animate-on-scroll opacity-0 translate-y-4 transition-all duration-700 pt-8 flex items-center justify-center lg:justify-start gap-8 border-t border-gray-100"
-              style={{ transitionDelay: "0.5s" }}
-            >
-              <div className="flex flex-col gap-1">
-                <span className="text-3xl font-bold text-gray-900">98%</span>
-                <span className="text-sm text-gray-500 font-medium">
-                  CSAT Score
-                </span>
+            <div className="animate-on-scroll surface-soft rounded-3xl p-6 lg:p-7 text-left max-w-3xl">
+              <p className="text-base text-slate-200 leading-relaxed">
+                We are an AI-driven outsourcing company based in Bangladesh,
+                helping global businesses automate customer support, sales, and
+                back-office operations using intelligent systems.
+              </p>
+              <div className="mt-5 flex flex-wrap gap-3">
+                {[
+                  "Artificial Intelligence",
+                  "Automation workflows",
+                  "Skilled human agents",
+                ].map((item) => (
+                  <span
+                    key={item}
+                    className="px-4 py-2 rounded-full bg-white/6 border border-white/8 text-sm font-semibold text-slate-100"
+                  >
+                    {item}
+                  </span>
+                ))}
               </div>
-              <div className="w-px h-12 bg-gray-200" />
-              <div className="flex flex-col gap-1">
-                <span className="text-3xl font-bold text-gray-900">24/7</span>
-                <span className="text-sm text-gray-500 font-medium">
-                  Availability
-                </span>
-              </div>
-              <div className="w-px h-12 bg-gray-200" />
-              <div className="flex flex-col gap-1">
-                <span className="text-3xl font-bold text-gray-900">50+</span>
-                <span className="text-sm text-gray-500 font-medium">
-                  Expert Agents
-                </span>
-              </div>
+              <p className="mt-4 text-accent font-semibold">
+                Result: Faster response, lower cost, better customer experience.
+              </p>
+            </div>
+
+            <div className="animate-on-scroll grid grid-cols-3 gap-4 border-t border-white/10 pt-8">
+              {heroMetrics.map((metric) => (
+                <div key={metric.label} className="text-center lg:text-left">
+                  <span className="block text-3xl font-bold text-white">
+                    {metric.value}
+                  </span>
+                  <span className="text-sm text-slate-300 font-medium">
+                    {metric.label}
+                  </span>
+                </div>
+              ))}
             </div>
           </div>
 
-          {/* Hero Image Composition */}
-          <div
-            className="animate-on-scroll opacity-0 translate-x-8 transition-all duration-700 relative lg:h-150 flex items-center justify-center"
-            style={{ transitionDelay: "0.3s" }}
-          >
-            <div className="relative w-full max-w-lg lg:max-w-none">
-              {/* Main Image */}
-              <div className="relative rounded-4xl overflow-hidden shadow-2xl shadow-gray-200/50 grayscale-10 hover:grayscale-0 transition-all duration-700">
-                <Image
-                  src="https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop"
-                  alt="Professional BPO team collaborating in a modern office environment"
-                  width={800}
-                  height={600}
-                  className="w-full h-auto object-cover"
-                  priority
-                />
-                <div className="absolute inset-0 bg-linear-to-t from-black/20 to-transparent mix-blend-multiply" />
+          <div className="animate-on-scroll relative lg:h-160 flex items-center justify-center">
+            <div className="relative w-full max-w-xl lg:max-w-none">
+              <div className="surface-panel rounded-[2rem] overflow-hidden p-6 lg:p-8">
+                <div className="gradient-bg rounded-[1.8rem] p-6 lg:p-8 min-h-[32rem] flex flex-col justify-between border border-white/10">
+                  <div className="flex items-center justify-between gap-4">
+                    <div>
+                      <p className="text-xs uppercase tracking-[0.25em] text-white/70 mb-2">
+                        Omnichannel command center
+                      </p>
+                      <h3 className="text-2xl lg:text-3xl font-bold text-white">
+                        AI + Human operations in one flow
+                      </h3>
+                    </div>
+                    <div className="w-14 h-14 rounded-2xl bg-white/12 border border-white/15 flex items-center justify-center text-white">
+                      <Sparkles className="w-7 h-7" />
+                    </div>
+                  </div>
+
+                  <div className="grid gap-4 lg:grid-cols-[1.3fr_1fr] items-start">
+                    <div className="bg-[#071120]/28 border border-white/12 rounded-3xl p-5 backdrop-blur-sm">
+                      <div className="flex items-center justify-between text-sm text-white/80 mb-5">
+                        <span>Live automation performance</span>
+                        <span className="px-3 py-1 rounded-full bg-white/10 text-white font-semibold">
+                          Active
+                        </span>
+                      </div>
+                      <div className="space-y-4">
+                        {[
+                          ["Email automation", "87% handled instantly"],
+                          ["WhatsApp support", "Lead capture + routing"],
+                          ["Escalation queue", "Human takeover ready"],
+                        ].map(([title, value], index) => (
+                          <div key={title} className="rounded-2xl bg-white/8 border border-white/10 p-4">
+                            <div className="flex items-center justify-between gap-3 text-sm">
+                              <span className="font-semibold text-white">{title}</span>
+                              <span className="text-accent-light">{value}</span>
+                            </div>
+                            <div className="mt-3 h-2 rounded-full bg-white/10 overflow-hidden">
+                              <div
+                                className="h-full rounded-full bg-white"
+                                style={{ width: `${78 - index * 14}%` }}
+                              />
+                            </div>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+
+                    <div className="space-y-4">
+                      <div className="rounded-3xl bg-[#071120]/28 border border-white/12 p-5 backdrop-blur-sm">
+                        <p className="text-sm text-white/70 mb-3">Channels connected</p>
+                        <div className="grid grid-cols-2 gap-3 text-sm font-semibold text-white">
+                          {[
+                            "Email",
+                            "Website Chat",
+                            "WhatsApp",
+                            "Social Media",
+                          ].map((channel) => (
+                            <div
+                              key={channel}
+                              className="rounded-2xl bg-white/8 border border-white/10 px-3 py-3 text-center"
+                            >
+                              {channel}
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+
+                      <div className="rounded-3xl bg-[#071120]/28 border border-white/12 p-5 backdrop-blur-sm">
+                        <p className="text-sm text-white/70 mb-3">Outcome targets</p>
+                        <div className="space-y-3 text-sm text-white">
+                          <div className="flex items-center justify-between">
+                            <span>Support cost</span>
+                            <span className="text-accent-light font-semibold">-50–70%</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>Response time</span>
+                            <span className="text-accent-light font-semibold">2–3x faster</span>
+                          </div>
+                          <div className="flex items-center justify-between">
+                            <span>Coverage</span>
+                            <span className="text-accent-light font-semibold">24/7</span>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
               </div>
 
-              {/* Floating Badge 1 - Top Right */}
               <div
-                className="absolute -top-6 -right-6 lg:right-8 bg-white p-4 rounded-2xl shadow-xl shadow-gray-200/50 animate-bounce-gentle border border-gray-100"
-                style={{ animationDelay: "1s" }}
+                className="surface-panel absolute -top-6 -right-2 lg:right-8 rounded-3xl p-4 border border-primary/20"
+                data-gsap="float"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-yellow-50 rounded-xl flex items-center justify-center text-yellow-600">
+                  <div className="w-12 h-12 bg-primary/18 rounded-2xl flex items-center justify-center text-accent">
                     <Trophy className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">
-                      Award Winning
+                    <div className="text-sm font-semibold text-white">
+                      AI handles instantly
                     </div>
-                    <div className="text-xs text-gray-500">
-                      Service Provider
+                    <div className="text-xs text-slate-300">
+                      First response across channels
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Floating Badge 2 - Bottom Left */}
               <div
-                className="absolute -bottom-6 -left-6 lg:left-8 bg-white p-4 rounded-2xl shadow-xl shadow-gray-200/50 animate-bounce-gentle border border-gray-100"
-                style={{ animationDelay: "2s" }}
+                className="surface-panel absolute -bottom-6 -left-2 lg:left-8 rounded-3xl p-4 border border-white/10"
+                data-gsap="float"
               >
                 <div className="flex items-center gap-3">
-                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                  <div className="w-12 h-12 bg-accent/15 rounded-2xl flex items-center justify-center text-accent-light">
                     <Users className="w-6 h-6" />
                   </div>
                   <div>
-                    <div className="text-sm font-semibold text-gray-900">
-                      Dedicated Teams
+                    <div className="text-sm font-semibold text-white">
+                      Human takeover
                     </div>
-                    <div className="text-xs text-gray-500">
-                      Tailored to your needs
+                    <div className="text-xs text-slate-300">
+                      Complex issues handled with care
                     </div>
                   </div>
                 </div>
               </div>
 
-              {/* Decorative Circle */}
-              <div className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-linear-to-tr from-primary/5 via-primary/5 to-transparent rounded-full blur-3xl" />
+              <div
+                className="absolute -z-10 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-linear-to-tr from-primary/16 via-accent/12 to-transparent rounded-full blur-3xl"
+                data-gsap="parallax"
+              />
             </div>
           </div>
         </div>

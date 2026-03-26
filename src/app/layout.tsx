@@ -1,58 +1,36 @@
 import type { Metadata, Viewport } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { services, siteConfig } from "@/lib/constants";
+import SiteAnimations from "@/components/SiteAnimations";
 import "./globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-  display: "swap",
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-  display: "swap",
-});
 
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
   maximumScale: 5,
-  themeColor: "#101d80",
+  themeColor: "#071120",
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://gsitechbd.com"),
   title: {
-    default: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
-    template: "%s | GSiTech Solutions & Consultancy",
+    default: "GSiTech | AI-Powered Customer Support & Business Process Automation",
+    template: "%s | GSiTech",
   },
   description:
-    "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
+    "AI-powered customer support, WhatsApp automation, hybrid service teams, and business process automation for global businesses.",
   keywords: [
-    "BPO services",
-    "call center outsourcing",
-    "customer support outsourcing",
-    "inbound call center",
-    "outbound call center",
-    "telesales services",
-    "offshore BPO",
-    "business process outsourcing",
-    "customer service outsourcing",
-    "virtual call center",
-    "call center training",
-    "telemarketing services",
-    "lead generation services",
-    "e-commerce customer support",
-    "healthcare BPO",
-    "fintech customer support",
-    "SaaS customer support",
-    "travel call center",
-    "telecom support",
-    "web development services",
-    "social media marketing",
-    "customer experience outsourcing",
+    "AI customer support",
+    "business process automation",
+    "WhatsApp automation",
+    "AI outsourcing company",
+    "AI-powered BPO",
+    "hybrid support team",
+    "customer support automation",
+    "back-office automation",
+    "workflow automation",
+    "Bangladesh outsourcing",
+    "global customer support",
+    "AI automation agency",
   ],
   authors: [{ name: "GSiTech Solutions & Consultancy" }],
   creator: "GSiTech Solutions & Consultancy",
@@ -67,23 +45,23 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: "https://gsitechbd.com",
     siteName: "GSiTech Solutions & Consultancy",
-    title: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
+    title: "GSiTech | AI-Powered Customer Support & Business Process Automation",
     description:
-      "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
+      "Reduce operational cost and scale faster with AI automation, hybrid support teams, and workflow design built for global businesses.",
     images: [
       {
         url: "/og-image.svg",
         width: 1200,
         height: 630,
-        alt: "GSiTech Solutions & Consultancy - BPO Services",
+        alt: "GSiTech - AI-powered customer support and automation",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "GSiTech Solutions & Consultancy | BPO & Call Center Outsourcing",
+    title: "GSiTech | AI-Powered Customer Support & Business Process Automation",
     description:
-      "BPO & call center outsourcing for e-commerce, healthcare, fintech, SaaS, travel & telecom. Inbound, outbound/telesales, training and managed operations.",
+      "AI automation and human expertise for customer support, sales workflows, and back-office execution.",
     images: ["/og-image.svg"],
     creator: "@gsitech",
   },
@@ -101,14 +79,13 @@ export const metadata: Metadata = {
   alternates: {
     canonical: "https://gsitechbd.com",
   },
-  category: "Business Services",
+  category: "Technology Services",
   icons: {
     icon: [{ url: "/favicon.svg", type: "image/svg+xml" }],
     apple: [{ url: "/logo.webp", type: "image/webp" }],
   },
 };
 
-// JSON-LD Structured Data
 const jsonLd = {
   "@context": "https://schema.org",
   "@graph": [
@@ -147,7 +124,7 @@ const jsonLd = {
       },
       hasOfferCatalog: {
         "@type": "OfferCatalog",
-        name: "BPO Services",
+        name: "AI Automation Services",
         itemListElement: services.map((service) => ({
           "@type": "Offer",
           itemOffered: {
@@ -172,16 +149,7 @@ const jsonLd = {
       name: siteConfig.name,
       url: siteConfig.url,
       description: siteConfig.description,
-      serviceType: [
-        "BPO Services",
-        "Call Center Outsourcing",
-        "Inbound Support",
-        "Outbound / Telesales",
-        "Managed Operations",
-        "Training & Security Programs",
-        "Web Development",
-        "Social Media Marketing",
-      ],
+      serviceType: services.map((service) => service.title),
       areaServed: ["US", "GB", "CA", "AU", "EU"],
       email: siteConfig.email,
       telephone: siteConfig.phone,
@@ -213,10 +181,8 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        suppressHydrationWarning
-      >
+      <body className="antialiased" suppressHydrationWarning>
+        <SiteAnimations />
         {children}
       </body>
     </html>
